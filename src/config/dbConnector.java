@@ -21,7 +21,7 @@ public class dbConnector {
     private Connection connect;
      public dbConnector(){
             try{
-                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/savings_app", "root", "");
+                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/savings_application", "root", "");
             }catch(SQLException ex){
                     System.out.println("Can't connect to database: "+ex.getMessage());
             }
@@ -33,6 +33,7 @@ public class dbConnector {
             return rst;
         }
     
+     
        public boolean insertData(String sql){
             try{
                 PreparedStatement pst = connect.prepareStatement(sql);
@@ -44,5 +45,8 @@ public class dbConnector {
                 System.out.println("Connection Error: "+ex);
                return false;
             }
+            
         }
+       
+       
 }
