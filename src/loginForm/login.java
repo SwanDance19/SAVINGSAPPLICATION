@@ -6,6 +6,8 @@
 package loginForm;
 
 import Admin.adminDashboard;
+import User.userDashboard;
+import config.Session;
 import config.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,24 +24,37 @@ public class login extends javax.swing.JFrame {
         initComponents();
     }
     
+    
+    
      static String status;
+     static String type;
     public static boolean login(String username, String password){
         dbConnector connector = new dbConnector();
         try{
-            String query = "SELECT * FROM u_tbl WHERE u_username = '" + username + "' AND u_password = '" + password + "'";
+            String query = "SELECT * FROM tbl_user WHERE user_name = '" + username + "' AND user_pass  = '" + password + "'";
             ResultSet resultSet = connector.getData(query);
-             if(resultSet.next()){
-             status = resultSet.getString("u_status");
-                 
-                 return true;
+            if(resultSet.next()){
+            type = resultSet.getString("account_type");
+            status = resultSet.getString("account_status");
+            Session session = Session.getInstance();
+            session.setUid(resultSet.getInt("user_id"));    
+            session.setFname(resultSet.getString("user_fname"));
+            session.setLname(resultSet.getString("user_lname"));
+            session.setEmail(resultSet.getString("user_email"));
+            session.setUsername(resultSet.getString("user_name"));
+            session.setType(resultSet.getString("account_type"));
+            session.setStatus(resultSet.getString("account_status"));
+            
+            
+            
+                 return true;          
              }else{
                  return false;
              }
-            
+             
         }catch (SQLException ex) {
             return false;
         }
-
     }
     
 
@@ -95,10 +110,6 @@ public class login extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(login)
-                .addGap(345, 345, 345))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(333, 333, 333)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -116,8 +127,13 @@ public class login extends javax.swing.JFrame {
                 .addContainerGap(273, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(234, 234, 234))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(login)
+                        .addGap(342, 342, 342))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +165,7 @@ public class login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -159,19 +173,32 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-             if(!status.equals("Active")){
-               JOptionPane.showMessageDialog(null,"In-active Account, Contact the Admin");
-             }
-        if(login(username.getText(),password.getText())){
-          JOptionPane.showMessageDialog(null,"Log-in Successfully");
-             adminDashboard ads = new adminDashboard();
-       
-          ads.setVisible(true);
-          this.dispose();
-    
+         if(login(username.getText(),password.getText())){
+             
+            if(!status.equals("Active")){
+            JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
         }else{
-           JOptionPane.showMessageDialog(null,"Log-in Failed");
-      }
+            if(type.equals("Admin")){
+            JOptionPane.showMessageDialog(null,"Log-in Successfully");
+            adminDashboard ads = new adminDashboard();
+            ads.setVisible(true);
+            this.dispose();
+            }else if(type.equals("User")){
+            JOptionPane.showMessageDialog(null,"Log-in Successfully");
+            userDashboard udb = new userDashboard();
+            udb.setVisible(true);
+            this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
+            } 
+        }
+         }
+        
+         if(username.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Please fill out username!!", "Message",JOptionPane.ERROR_MESSAGE);
+         }else if(password.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Please fill out password!!", "Message",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
