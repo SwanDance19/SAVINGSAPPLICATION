@@ -5,7 +5,6 @@
  */
 package signupForm;
 
-import User.userDashboard;
 import config.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -408,12 +407,12 @@ public class signup extends javax.swing.JFrame {
         if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
                 un.getText().isEmpty()||pw.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
-    }else if(pw.getText().length() < 8){
+        }else if(pw.getText().length() < 8){
             JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
                 pw.setText("");
-    }else if(duplicateCheck()){
+        }else if(duplicateCheck()){
             System.out.println("Duplicate Exist");
-    }else{
+        }else{
         dbConnector dbc = new dbConnector();
        if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
                         + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"

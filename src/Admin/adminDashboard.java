@@ -80,10 +80,10 @@ public class adminDashboard extends javax.swing.JFrame {
         adminIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrator_icon.jpg"))); // NOI18N
 
         account_fname.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
-        account_fname.setText("Admin");
+        account_fname.setText("Firstname");
 
         account_lname.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
-        account_lname.setText("Admin");
+        account_lname.setText("Lastname");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -288,22 +288,13 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel account_fname;
     private javax.swing.JLabel account_lname;
     private javax.swing.JLabel adminIcon;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JLabel user;
-    private javax.swing.JLabel user1;
-    private javax.swing.JLabel user2;
     private javax.swing.JLabel usersForm;
     private javax.swing.JLabel usersIcon;
     // End of variables declaration//GEN-END:variables

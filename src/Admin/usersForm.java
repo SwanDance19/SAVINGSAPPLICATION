@@ -70,10 +70,10 @@ public class usersForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         awd = new javax.swing.JLabel();
         users = new javax.swing.JLabel();
-        add = new javax.swing.JPanel();
-        awd1 = new javax.swing.JLabel();
-        add2 = new javax.swing.JPanel();
-        awd3 = new javax.swing.JLabel();
+        addPanel = new javax.swing.JPanel();
+        add = new javax.swing.JLabel();
+        editPanel = new javax.swing.JPanel();
+        edit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -116,77 +116,82 @@ public class usersForm extends javax.swing.JFrame {
 
         users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users_icon.png"))); // NOI18N
 
-        add.setBackground(new java.awt.Color(255, 153, 0));
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
+        addPanel.setBackground(new java.awt.Color(255, 153, 0));
+        addPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addMouseEntered(evt);
+                addPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                addMouseExited(evt);
+                addPanelMouseExited(evt);
             }
         });
 
-        awd1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        awd1.setText("  ADD");
+        add.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        add.setText("  ADD");
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout addLayout = new javax.swing.GroupLayout(add);
-        add.setLayout(addLayout);
-        addLayout.setHorizontalGroup(
-            addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addLayout.createSequentialGroup()
+        javax.swing.GroupLayout addPanelLayout = new javax.swing.GroupLayout(addPanel);
+        addPanel.setLayout(addPanelLayout);
+        addPanelLayout.setHorizontalGroup(
+            addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(awd1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87))
         );
-        addLayout.setVerticalGroup(
-            addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addLayout.createSequentialGroup()
+        addPanelLayout.setVerticalGroup(
+            addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(awd1)
+                .addComponent(add)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add2.setBackground(new java.awt.Color(255, 153, 0));
-        add2.addMouseListener(new java.awt.event.MouseAdapter() {
+        editPanel.setBackground(new java.awt.Color(255, 153, 0));
+        editPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                add2MouseClicked(evt);
+                editPanelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                add2MouseEntered(evt);
+                editPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                add2MouseExited(evt);
+                editPanelMouseExited(evt);
             }
         });
 
-        awd3.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        awd3.setText("EDIT");
-        awd3.addMouseListener(new java.awt.event.MouseAdapter() {
+        edit.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        edit.setText("EDIT");
+        edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                awd3MouseClicked(evt);
+                editMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                awd3MouseEntered(evt);
+                editMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                awd3MouseExited(evt);
+                editMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout add2Layout = new javax.swing.GroupLayout(add2);
-        add2.setLayout(add2Layout);
-        add2Layout.setHorizontalGroup(
-            add2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add2Layout.createSequentialGroup()
+        javax.swing.GroupLayout editPanelLayout = new javax.swing.GroupLayout(editPanel);
+        editPanel.setLayout(editPanelLayout);
+        editPanelLayout.setHorizontalGroup(
+            editPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(awd3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
         );
-        add2Layout.setVerticalGroup(
-            add2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add2Layout.createSequentialGroup()
+        editPanelLayout.setVerticalGroup(
+            editPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPanelLayout.createSequentialGroup()
                 .addGap(0, 13, Short.MAX_VALUE)
-                .addComponent(awd3))
+                .addComponent(edit))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -215,8 +220,8 @@ public class usersForm extends javax.swing.JFrame {
                                         .addGap(69, 69, 69))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(add2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(add, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(editPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(addPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -242,9 +247,9 @@ public class usersForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(awd)
                         .addGap(18, 18, 18)
-                        .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(add2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -295,13 +300,13 @@ public class usersForm extends javax.swing.JFrame {
        account_id.setText(""+session.getUid());
     }//GEN-LAST:event_formWindowActivated
 
-    private void addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseEntered
-             add.setBackground(hovercolor);
-    }//GEN-LAST:event_addMouseEntered
+    private void addPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPanelMouseEntered
+             addPanel.setBackground(hovercolor);
+    }//GEN-LAST:event_addPanelMouseEntered
 
-    private void addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseExited
-             add.setBackground(navcolor);
-    }//GEN-LAST:event_addMouseExited
+    private void addPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPanelMouseExited
+             addPanel.setBackground(navcolor);
+    }//GEN-LAST:event_addPanelMouseExited
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         createUserForm cuf = new createUserForm();
@@ -309,23 +314,23 @@ public class usersForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_addMouseClicked
 
-    private void add2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add2MouseEntered
-        add2.setBackground(hovercolor);
-    }//GEN-LAST:event_add2MouseEntered
+    private void editPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editPanelMouseEntered
+        editPanel.setBackground(hovercolor);
+    }//GEN-LAST:event_editPanelMouseEntered
 
-    private void add2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add2MouseExited
-        add2.setBackground(navcolor);
-    }//GEN-LAST:event_add2MouseExited
+    private void editPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editPanelMouseExited
+        editPanel.setBackground(navcolor);
+    }//GEN-LAST:event_editPanelMouseExited
 
-    private void awd3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_awd3MouseEntered
+    private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_awd3MouseEntered
+    }//GEN-LAST:event_editMouseEntered
 
-    private void awd3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_awd3MouseExited
+    private void editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_awd3MouseExited
+    }//GEN-LAST:event_editMouseExited
 
-    private void awd3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_awd3MouseClicked
+    private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
         int rowIndex = usersTable.getSelectedRow();
         
         if(rowIndex < 0){
@@ -355,11 +360,39 @@ public class usersForm extends javax.swing.JFrame {
                 System.out.println(""+ex);
             }   
         }
-    }//GEN-LAST:event_awd3MouseClicked
+    }//GEN-LAST:event_editMouseClicked
 
-    private void add2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add2MouseClicked
-
-    }//GEN-LAST:event_add2MouseClicked
+    private void editPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editPanelMouseClicked
+        int rowIndex = usersTable.getSelectedRow();
+        
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null,"Please select an item!");
+        }else{
+            try{
+                dbConnector dbc = new dbConnector();
+                TableModel tbl = usersTable.getModel();
+                ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE user_id = '"+tbl.getValueAt(rowIndex,0)+"'");
+                
+                if(rs.next()){
+                  createUserForm crf = new createUserForm();
+                  crf.uid.setText(""+rs.getInt("user_id"));
+                  crf.fn.setText(""+rs.getString("user_fname"));
+                  crf.ln.setText(""+rs.getString("user_lname"));
+                  crf.em.setText(""+rs.getString("user_email"));
+                  crf.un.setText(""+rs.getString("user_name"));
+                  crf.pw.setText(""+rs.getString("user_pass"));
+                  crf.ut.setSelectedItem(""+rs.getString("account_type"));
+                  crf.us.setSelectedItem(""+rs.getString("account_status"));
+                  crf.add.setEnabled(false);
+                  crf.update.setEnabled(true);
+                  crf.setVisible(true);
+                  this.dispose();
+                }
+            }catch(SQLException ex){
+                System.out.println(""+ex);
+            }   
+        }
+    }//GEN-LAST:event_editPanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -399,13 +432,11 @@ public class usersForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel account_id;
-    private javax.swing.JPanel add;
-    private javax.swing.JPanel add1;
-    private javax.swing.JPanel add2;
+    private javax.swing.JLabel add;
+    private javax.swing.JPanel addPanel;
     private javax.swing.JLabel awd;
-    private javax.swing.JLabel awd1;
-    private javax.swing.JLabel awd2;
-    private javax.swing.JLabel awd3;
+    private javax.swing.JLabel edit;
+    private javax.swing.JPanel editPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
