@@ -6,6 +6,7 @@
 package signupForm;
 
 import config.dbConnector;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -251,6 +252,11 @@ public class signup extends javax.swing.JFrame {
                 utActionPerformed(evt);
             }
         });
+        ut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                utKeyPressed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("First name:");
@@ -277,6 +283,36 @@ public class signup extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel20.setText("Account Type:");
+
+        fn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fnKeyPressed(evt);
+            }
+        });
+
+        ln.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lnKeyPressed(evt);
+            }
+        });
+
+        em.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emKeyPressed(evt);
+            }
+        });
+
+        un.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                unKeyPressed(evt);
+            }
+        });
+
+        pw.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pwKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -433,6 +469,168 @@ public class signup extends javax.swing.JFrame {
            l.setVisible(true);
            this.dispose();
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void utKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_utKeyPressed
+        if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
+                un.getText().isEmpty()||pw.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
+        }else if(pw.getText().length() < 8){
+            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
+                pw.setText("");
+        }else if(duplicateCheck()){
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
+                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
+                                + ut.getSelectedItem()+"','Pending')"))
+       {
+           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+           login l = new login();
+           l.setVisible(true);
+           this.dispose();
+    }else{
+           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
+       }
+    }
+        }
+    }//GEN-LAST:event_utKeyPressed
+    
+    private void pwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwKeyPressed
+      if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
+                un.getText().isEmpty()||pw.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
+        }else if(pw.getText().length() < 8){
+            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
+                pw.setText("");
+        }else if(duplicateCheck()){
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
+                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
+                                + ut.getSelectedItem()+"','Pending')"))
+       {
+           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+           login l = new login();
+           l.setVisible(true);
+           this.dispose();
+    }else{
+           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
+       }
+    }
+        }
+    }//GEN-LAST:event_pwKeyPressed
+
+    private void unKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unKeyPressed
+      if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
+                un.getText().isEmpty()||pw.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
+        }else if(pw.getText().length() < 8){
+            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
+                pw.setText("");
+        }else if(duplicateCheck()){
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
+                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
+                                + ut.getSelectedItem()+"','Pending')"))
+       {
+           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+           login l = new login();
+           l.setVisible(true);
+           this.dispose();
+    }else{
+           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
+       }
+    }
+        }
+    }//GEN-LAST:event_unKeyPressed
+
+    private void emKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emKeyPressed
+      if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
+                un.getText().isEmpty()||pw.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
+        }else if(pw.getText().length() < 8){
+            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
+                pw.setText("");
+        }else if(duplicateCheck()){
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
+                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
+                                + ut.getSelectedItem()+"','Pending')"))
+       {
+           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+           login l = new login();
+           l.setVisible(true);
+           this.dispose();
+    }else{
+           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
+       }
+    }
+        }
+    }//GEN-LAST:event_emKeyPressed
+
+    private void lnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lnKeyPressed
+ if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
+                un.getText().isEmpty()||pw.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
+        }else if(pw.getText().length() < 8){
+            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
+                pw.setText("");
+        }else if(duplicateCheck()){
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
+                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
+                                + ut.getSelectedItem()+"','Pending')"))
+       {
+           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+           login l = new login();
+           l.setVisible(true);
+           this.dispose();
+    }else{
+           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
+       }
+    }
+        }
+    }//GEN-LAST:event_lnKeyPressed
+
+    private void fnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnKeyPressed
+   if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
+                un.getText().isEmpty()||pw.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
+        }else if(pw.getText().length() < 8){
+            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
+                pw.setText("");
+        }else if(duplicateCheck()){
+            System.out.println("Duplicate Exist");
+        }else{
+        dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
+                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
+                                + ut.getSelectedItem()+"','Pending')"))
+       {
+           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+           login l = new login();
+           l.setVisible(true);
+           this.dispose();
+    }else{
+           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
+       }
+    }
+        }
+    }//GEN-LAST:event_fnKeyPressed
 
     /**
      * @param args the command line arguments
