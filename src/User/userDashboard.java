@@ -56,11 +56,16 @@ public class userDashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
 
-        userimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/userimage_icon.jpg"))); // NOI18N
+        userimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.jpg"))); // NOI18N
         userimage.setText("jLabel2");
+        userimage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userimageMouseClicked(evt);
+            }
+        });
 
         account_fname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        account_fname.setText("Name");
+        account_fname.setText("First Name");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel2.setText("Logout");
@@ -71,7 +76,7 @@ public class userDashboard extends javax.swing.JFrame {
         });
 
         account_lname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        account_lname.setText("Name");
+        account_lname.setText("Last Name");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,6 +147,12 @@ public class userDashboard extends javax.swing.JFrame {
        }
        
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void userimageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userimageMouseClicked
+        userProfile up = new userProfile();
+        up.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_userimageMouseClicked
 
     /**
      * @param args the command line arguments

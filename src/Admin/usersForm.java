@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -131,7 +131,7 @@ public class usersForm extends javax.swing.JFrame {
         awd.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         awd.setText("USERS");
 
-        users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users_icon.png"))); // NOI18N
+        users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.jpg"))); // NOI18N
 
         addPanel.setBackground(new java.awt.Color(255, 153, 0));
         addPanel.addMouseListener(new java.awt.event.MouseAdapter() {

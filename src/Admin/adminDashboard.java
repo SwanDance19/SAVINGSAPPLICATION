@@ -77,7 +77,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 153, 0));
 
-        adminIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/administrator_icon.jpg"))); // NOI18N
+        adminIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.png"))); // NOI18N
 
         account_fname.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         account_fname.setText("Firstname");
@@ -125,7 +125,7 @@ public class adminDashboard extends javax.swing.JFrame {
             }
         });
 
-        usersIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users_icon.png"))); // NOI18N
+        usersIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.jpg"))); // NOI18N
 
         usersForm.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         usersForm.setText("USER");

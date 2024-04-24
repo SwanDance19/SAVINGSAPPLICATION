@@ -212,7 +212,7 @@ public class login extends javax.swing.JFrame {
             udb.setVisible(true);
             this.dispose();
             }else{
-                JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
+                JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
             } 
         }
          }
@@ -241,7 +241,7 @@ public class login extends javax.swing.JFrame {
            if(login(username.getText(),password.getText())){
              
             if(!status.equals("Active")){
-            JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
+            JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
         }else{
             if(type.equals("Admin")){
             adminDashboard ads = new adminDashboard();
@@ -252,7 +252,7 @@ public class login extends javax.swing.JFrame {
             udb.setVisible(true);
             this.dispose();
             }else{
-                JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
+                JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
             } 
         }
          }
