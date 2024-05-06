@@ -40,12 +40,10 @@ public class accountDetails extends javax.swing.JFrame {
         em = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         un = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        ut = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         uid = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         userimage = new javax.swing.JLabel();
         account_fname = new javax.swing.JLabel();
@@ -75,35 +73,23 @@ public class accountDetails extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("First name:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 102, -1, -1));
-        jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 87, 250, 37));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
+        jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 250, 37));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("Last name:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 152, -1, -1));
-        jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 137, 250, 37));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
+        jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 250, 37));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel17.setText("Email:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 203, -1, -1));
-        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 186, 250, 39));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
+        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 250, 39));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel18.setText("Username:");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 256, -1, -1));
-        jPanel1.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 236, 250, 42));
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel20.setText("Account Type:");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
-
-        ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
-        ut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                utActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 250, 36));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
+        jPanel1.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 250, 42));
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 0));
 
@@ -113,8 +99,13 @@ public class accountDetails extends javax.swing.JFrame {
         uid.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         uid.setText("ID");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("LOGOUT");
+        back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        back.setText("BACK");
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -125,8 +116,8 @@ public class accountDetails extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addComponent(uid)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
+                .addComponent(back)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -135,7 +126,7 @@ public class accountDetails extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
+                    .addComponent(back)
                     .addComponent(uid))
                 .addContainerGap())
         );
@@ -209,10 +200,6 @@ public class accountDetails extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void utActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_utActionPerformed
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
            Session session = Session.getInstance();
            
@@ -221,7 +208,6 @@ public class accountDetails extends javax.swing.JFrame {
            ln.setText(""+session.getLname());
            em.setText(""+session.getEmail());
            un.setText(""+session.getUsername());
-           ut.setSelectedItem(""+session.getType());
            account_fname.setText(""+session.getFname());
            account_lname.setText(""+session.getLname());
     }//GEN-LAST:event_formWindowActivated
@@ -231,6 +217,12 @@ public class accountDetails extends javax.swing.JFrame {
         cp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        userDashboard ud = new userDashboard();
+        ud.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backMouseClicked
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -266,6 +258,7 @@ public class accountDetails extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel account_fname;
     private javax.swing.JLabel account_lname;
+    private javax.swing.JLabel back;
     public javax.swing.JTextField em;
     public javax.swing.JTextField fn;
     private javax.swing.JLabel jLabel1;
@@ -273,8 +266,6 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -284,6 +275,5 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel uid;
     public javax.swing.JTextField un;
     private javax.swing.JLabel userimage;
-    public javax.swing.JComboBox<String> ut;
     // End of variables declaration//GEN-END:variables
 }

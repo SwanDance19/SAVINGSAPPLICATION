@@ -36,7 +36,7 @@ public class changePassword extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         uid = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        account_lname1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         userimage = new javax.swing.JLabel();
         account_fname = new javax.swing.JLabel();
@@ -56,18 +56,18 @@ public class changePassword extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Enter Old Password:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
-        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 250, 37));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
+        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 250, 37));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("Enter New Password:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
-        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 250, 37));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
+        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 250, 37));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel17.setText("Confirm Password:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
-        jPanel1.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 250, 39));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
+        jPanel1.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 250, 39));
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 0));
 
@@ -83,9 +83,9 @@ public class changePassword extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(244, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(188, 188, 188)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
                 .addComponent(uid)
                 .addGap(39, 39, 39))
         );
@@ -104,12 +104,17 @@ public class changePassword extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(153, 102, 0));
         jPanel4.setLayout(null);
 
-        account_lname1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        account_lname1.setText("Back");
-        jPanel4.add(account_lname1);
-        account_lname1.setBounds(30, 10, 50, 20);
+        back.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        back.setText("Back");
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel4.add(back);
+        back.setBounds(30, 10, 50, 20);
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 100, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 100, 40));
 
         jPanel5.setBackground(new java.awt.Color(204, 102, 0));
 
@@ -165,7 +170,7 @@ public class changePassword extends javax.swing.JFrame {
         jPanel6.add(account_lname2);
         account_lname2.setBounds(20, 10, 60, 20);
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 100, 40));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,7 +188,8 @@ public class changePassword extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
-       try{
+          
+        try{
         dbConnector dbc = new dbConnector();
         Session session = Session.getInstance();
         
@@ -213,12 +219,19 @@ public class changePassword extends javax.swing.JFrame {
        }catch(SQLException | NoSuchAlgorithmException ex){
            System.out.println(""+ex);
        }
+               
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Session session = Session.getInstance();
         uid.setText("USER ID :"+session.getUid());
     }//GEN-LAST:event_formWindowActivated
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+       accountDetails ad = new accountDetails();
+       ad.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -258,8 +271,8 @@ public class changePassword extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel account_fname;
     private javax.swing.JLabel account_lname;
-    private javax.swing.JLabel account_lname1;
     private javax.swing.JLabel account_lname2;
+    private javax.swing.JLabel back;
     public javax.swing.JTextField conpass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
