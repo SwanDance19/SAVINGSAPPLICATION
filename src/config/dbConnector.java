@@ -44,10 +44,17 @@ public class dbConnector {
             }catch(SQLException ex){
                 System.out.println("Connection Error: "+ex);
                return false;
-            }
-            
+            } 
         }
 
+       public void updateData(String sql) throws SQLException {
+        PreparedStatement pst = connect.prepareStatement(sql);
+        pst.executeUpdate();
+        System.out.println("Updated Successfully!");
+        pst.close();
+    }
+       
+       
        public Connection getConnection() {
         return connect;
     }

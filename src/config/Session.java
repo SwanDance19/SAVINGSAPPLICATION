@@ -5,12 +5,14 @@
  */
 package config;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author vin
  */
 public class Session {
-    
+    private double balance;
     private static Session instance;
     private int uid;
     private String fname;
@@ -67,15 +69,21 @@ public class Session {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
-        this.username = username;
+    this.username = username;
     }
-
+    
+    public double getBalance() {
+        return balance;
+    }
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+    
     public String getType() {
         return type;
     }
@@ -91,5 +99,11 @@ public class Session {
     public void setStatus(String status) {
         this.status = status;
     }
+
+
+
+
+
+
     
 }

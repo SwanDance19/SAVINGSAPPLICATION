@@ -93,8 +93,8 @@ public class createUserForm extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 153, 102));
 
-        back.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        back.setText("Back");
+        back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        back.setText("BACK");
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backMouseClicked(evt);

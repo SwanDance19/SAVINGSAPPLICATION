@@ -33,13 +33,8 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        fn = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        ln = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        em = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        un = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         uid = new javax.swing.JLabel();
@@ -49,6 +44,9 @@ public class accountDetails extends javax.swing.JFrame {
         account_fname = new javax.swing.JLabel();
         account_lname = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        fn = new javax.swing.JLabel();
+        ln = new javax.swing.JLabel();
+        em = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -73,23 +71,15 @@ public class accountDetails extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("First name:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
-        jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 250, 37));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("Last name:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
-        jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 250, 37));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel17.setText("Email:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
-        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 250, 39));
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel18.setText("Username:");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
-        jPanel1.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 250, 42));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 0));
 
@@ -184,6 +174,9 @@ public class accountDetails extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 420));
+        jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 250, 40));
+        jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 240, 40));
+        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 240, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,7 +200,6 @@ public class accountDetails extends javax.swing.JFrame {
            fn.setText(""+session.getFname());
            ln.setText(""+session.getLname());
            em.setText(""+session.getEmail());
-           un.setText(""+session.getUsername());
            account_fname.setText(""+session.getFname());
            account_lname.setText(""+session.getLname());
     }//GEN-LAST:event_formWindowActivated
@@ -259,21 +251,19 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel account_fname;
     private javax.swing.JLabel account_lname;
     private javax.swing.JLabel back;
-    public javax.swing.JTextField em;
-    public javax.swing.JTextField fn;
+    private javax.swing.JLabel em;
+    private javax.swing.JLabel fn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
-    public javax.swing.JTextField ln;
+    private javax.swing.JLabel ln;
     private javax.swing.JLabel uid;
-    public javax.swing.JTextField un;
     private javax.swing.JLabel userimage;
     // End of variables declaration//GEN-END:variables
 }
