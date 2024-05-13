@@ -30,12 +30,7 @@ public class usersForm extends javax.swing.JFrame {
      */
     public usersForm() {
         initComponents();
-        
         displayData();
-        
-        
-        
-        
         Icon l = users.getIcon();
         ImageIcon icon = (ImageIcon)l;
         Image image = icon.getImage().getScaledInstance(users.getWidth(),users.getHeight(),Image.SCALE_SMOOTH);
@@ -47,7 +42,7 @@ public class usersForm extends javax.swing.JFrame {
     
     public void displayData(){
         try{
-            dbConnector dbc = new dbConnector();
+             dbConnector dbc = new dbConnector();
             ResultSet rs = dbc.getData("SELECT user_id, user_fname, user_lname, user_email FROM tbl_user");
             usersTable.setModel(DbUtils.resultSetToTableModel(rs));
             rs.close();
@@ -406,10 +401,11 @@ public class usersForm extends javax.swing.JFrame {
             try{
                 dbConnector dbc = new dbConnector();
                 TableModel tbl = usersTable.getModel();
+                
                 ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE user_id = '"+tbl.getValueAt(rowIndex,0)+"'");
                 
                 if(rs.next()){
-                  createUserForm crf = new createUserForm();
+                  createUserForm crf = new createUserForm(); 
                   crf.fn.setText(""+rs.getString("user_fname"));
                   crf.ln.setText(""+rs.getString("user_lname"));
                   crf.em.setText(""+rs.getString("user_email"));
@@ -470,13 +466,13 @@ public class usersForm extends javax.swing.JFrame {
             TableModel tbl = usersTable.getModel();
             Object userId = tbl.getValueAt(rowIndex, 0);
             
-            // Prepare the delete statement
+            
             PreparedStatement pstmt = dbc.getConnection().prepareStatement("DELETE FROM tbl_user WHERE user_id = ?");
             
-            // Set the parameter value
+            
             pstmt.setObject(1, userId);
             
-            // Execute the delete query
+            
             int rowsAffected = pstmt.executeUpdate();
             
             if (rowsAffected > 0) {
@@ -486,7 +482,7 @@ public class usersForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Failed to delete user!");
             }
             
-            // Close the PreparedStatement
+            
             pstmt.close();
         } catch (SQLException ex) {
             System.out.println("" + ex);
@@ -495,11 +491,11 @@ public class usersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteMouseClicked
 
     private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_deleteMouseEntered
 
     private void deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseExited
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_deleteMouseExited
 
     private void deletePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletePanelMouseClicked
@@ -513,13 +509,13 @@ public class usersForm extends javax.swing.JFrame {
             TableModel tbl = usersTable.getModel();
             Object userId = tbl.getValueAt(rowIndex, 0);
             
-            // Prepare the delete statement
+            
             PreparedStatement pstmt = dbc.getConnection().prepareStatement("DELETE FROM tbl_user WHERE user_id = ?");
             
-            // Set the parameter value
+            
             pstmt.setObject(1, userId);
             
-            // Execute the delete query
+            
             int rowsAffected = pstmt.executeUpdate();
             
             if (rowsAffected > 0) {
@@ -529,7 +525,7 @@ public class usersForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Failed to delete user!");
             }
             
-            // Close the PreparedStatement
+            
             pstmt.close();
         } catch (SQLException ex) {
             System.out.println("" + ex);

@@ -448,16 +448,22 @@ public class signup extends javax.swing.JFrame {
         
        if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
                         + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pass+"','"
-                                + ut.getSelectedItem()+"','Pending')"))
-       {
-           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-           login l = new login();
-           l.setVisible(true);
-           this.dispose();
-    }else{
-           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
-       }
-    }catch(NoSuchAlgorithmException ex){
+                                + ut.getSelectedItem()+"','Pending')")){
+                       if(dbc.insertData("UPDATE tbl_user SET balance = 0.00 WHERE user_name = '" + un.getText() + "'")) {
+                    JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+                    login l = new login();
+                    l.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to set balance!", "Message", JOptionPane.ERROR_MESSAGE);
+                }
+           
+       
+
+       }else {
+                JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+        }catch(NoSuchAlgorithmException ex){
             System.out.println(""+ex);
     }
         }

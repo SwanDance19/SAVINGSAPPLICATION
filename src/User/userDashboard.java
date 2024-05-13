@@ -34,6 +34,11 @@ public class userDashboard extends javax.swing.JFrame {
         Image image = icon.getImage().getScaledInstance(userimage5.getWidth(),userimage5.getHeight(),Image.SCALE_SMOOTH);
         userimage5.setIcon(new ImageIcon(image));
         
+        Icon j = account.getIcon();
+        ImageIcon ic = (ImageIcon)j;
+        Image age = ic.getImage().getScaledInstance(account.getWidth(),account.getHeight(),Image.SCALE_SMOOTH);
+        account.setIcon(new ImageIcon(age));
+        
         Icon z = deposit.getIcon();
         ImageIcon i = (ImageIcon)z;
         Image img = i.getImage().getScaledInstance(deposit.getWidth(),deposit.getHeight(),Image.SCALE_SMOOTH);
@@ -109,7 +114,7 @@ private void displayData() {
         userimage5.setText("jLabel2");
         userimage5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userimageMouseClicked(evt);
+                userimage5MouseClicked(evt);
             }
         });
 
@@ -204,7 +209,7 @@ private void displayData() {
         jLabel5.setText("₱");
 
         bal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bal.setText("Balance");
+        bal.setText("0.00");
         bal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 balMouseClicked(evt);
@@ -231,9 +236,9 @@ private void displayData() {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(bal, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bal, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -315,9 +320,9 @@ private void displayData() {
         this.dispose();
     }//GEN-LAST:event_accountMouseClicked
 
-    private void userimageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userimageMouseClicked
+    private void userimage5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userimage5MouseClicked
 
-    }//GEN-LAST:event_userimageMouseClicked
+    }//GEN-LAST:event_userimage5MouseClicked
 
     private void balMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_balMouseClicked
 
