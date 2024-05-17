@@ -43,7 +43,7 @@ public class usersForm extends javax.swing.JFrame {
     public void displayData(){
         try{
              dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT user_id, user_fname, user_lname, user_email FROM tbl_user");
+            ResultSet rs = dbc.getData("SELECT user_id, user_fname, user_lname, user_email, account_status FROM tbl_user");
             usersTable.setModel(DbUtils.resultSetToTableModel(rs));
             rs.close();
         }catch(SQLException ex){
@@ -54,11 +54,10 @@ public class usersForm extends javax.swing.JFrame {
         public void refreshUI() {
         try {
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT user_id, user_fname, user_lname, user_email FROM tbl_user");
+            ResultSet rs = dbc.getData("SELECT user_id, user_fname, user_lname, user_email, account_status FROM tbl_user");
             usersTable.setModel(DbUtils.resultSetToTableModel(rs));
             rs.close();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
     }
     

@@ -16,27 +16,14 @@ public class dbConnector {
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/savings_application", "root", "");
         } catch(SQLException ex) {
             System.err.println("Can't connect to database: " + ex.getMessage());
-            ex.printStackTrace(); // Print the full stack trace for debugging
         }
     }
      
-    public ResultSet getData(String sql) throws SQLException {
-        Statement stmt = null;
-        ResultSet rs = null;
-        try {
-            stmt = connect.createStatement();
-            rs = stmt.executeQuery(sql);
-            return rs;
-        } catch(SQLException ex) {
-            // Log error or re-throw the exception
-            throw ex;
-        } finally {
-            // Close resources in finally block
-            if (stmt != null) {
-                stmt.close();
-            }
+         public ResultSet getData(String sql) throws SQLException{
+            Statement stmt = connect.createStatement();
+            ResultSet rst = stmt.executeQuery(sql);
+            return rst;
         }
-    }
     
     public boolean insertData(String sql) {
         try (PreparedStatement pst = connect.prepareStatement(sql)) {
@@ -45,7 +32,6 @@ public class dbConnector {
             return true;
         } catch(SQLException ex) {
             System.err.println("Connection Error: " + ex.getMessage());
-            ex.printStackTrace(); // Print the full stack trace for debugging
             return false;
         }
     }
@@ -56,7 +42,6 @@ public class dbConnector {
             System.out.println("Updated Successfully!");
         } catch(SQLException ex) {
             System.err.println("Update Error: " + ex.getMessage());
-            ex.printStackTrace(); // Print the full stack trace for debugging
         }
     }
        

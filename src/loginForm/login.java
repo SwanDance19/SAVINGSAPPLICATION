@@ -25,7 +25,7 @@ public class login extends javax.swing.JFrame {
      static String status;
      static String type;
      
-    public static boolean login(String username, String password) throws NoSuchAlgorithmException{
+    public static boolean login(String username, String password) {
         dbConnector connector = new dbConnector();
         try{
             String query = "SELECT * FROM tbl_user WHERE user_name = '" + username + "'";
@@ -33,8 +33,8 @@ public class login extends javax.swing.JFrame {
             if(resultSet.next()){
                 String hashedPass = resultSet.getString("user_pass");
                 String rehashedPass = passwordHasher.hashPassword(password);
-                
-              if(hashedPass.equals(rehashedPass)){
+              
+                if(hashedPass.equals(rehashedPass)){  
                   type = resultSet.getString("account_type");
                   status = resultSet.getString("account_status");
                   Session session = Session.getInstance();
@@ -190,11 +190,12 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        try {
+
+
             if(login(username.getText(),password.getText())){
                 
                 if(!status.equals("Active")){
-                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
+                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
                 }else{
                     if(type.equals("Admin")){
                         adminDashboard ads = new adminDashboard();
@@ -205,15 +206,14 @@ public class login extends javax.swing.JFrame {
                         udb.setVisible(true);
                         this.dispose();
                     }else{
-                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE); 
+                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }else{
                 JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
             }
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+    
     }//GEN-LAST:event_loginActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -230,26 +230,25 @@ public class login extends javax.swing.JFrame {
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         if(evt.getKeyCode () == KeyEvent.VK_ENTER){
             
-            try {
-                if(login(username.getText(),password.getText())){
-                    
-                    if(!status.equals("Active")){
-                        JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+            if(login(username.getText(),password.getText())){
+                
+                if(!status.equals("Active")){
+                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);  
+                }else{
+                    if(type.equals("Admin")){
+                        adminDashboard ads = new adminDashboard();
+                        ads.setVisible(true);
+                        this.dispose();
+                    }else if(type.equals("User")){
+                        userDashboard udb = new userDashboard();
+                        udb.setVisible(true);
+                        this.dispose();
                     }else{
-                        if(type.equals("Admin")){
-                            adminDashboard ads = new adminDashboard();
-                            ads.setVisible(true);
-                            this.dispose();
-                        }else if(type.equals("User")){
-                            userDashboard udb = new userDashboard();
-                            udb.setVisible(true);
-                            this.dispose();
-                        }else{
-                            JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
-                        }
-                    }  
-                }  } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_passwordKeyPressed
@@ -257,27 +256,23 @@ public class login extends javax.swing.JFrame {
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
      if(evt.getKeyCode () == KeyEvent.VK_ENTER){
             
-         try {
-             if(login(username.getText(),password.getText())){
-                 
-                 if(!status.equals("Active")){
-                     JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
+         if(login(username.getText(),password.getText())){
+             
+             if(!status.equals("Active")){
+                 JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
+             }else{
+                 if(type.equals("Admin")){
+                     adminDashboard ads = new adminDashboard();
+                     ads.setVisible(true);
+                     this.dispose();
+                 }else if(type.equals("User")){
+                     userDashboard udb = new userDashboard();
+                     udb.setVisible(true);
+                     this.dispose();
                  }else{
-                     if(type.equals("Admin")){
-                         adminDashboard ads = new adminDashboard();
-                         ads.setVisible(true);
-                         this.dispose();
-                     }else if(type.equals("User")){
-                         userDashboard udb = new userDashboard();
-                         udb.setVisible(true);
-                         this.dispose();
-                     }else{
-                         JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
-                     }
+                     JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
                  }
              }
-         } catch (NoSuchAlgorithmException ex) {
-             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
          }
         
          if(username.getText().equals("")){

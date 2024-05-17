@@ -329,10 +329,6 @@ public class createUserForm extends javax.swing.JFrame {
         }else if(pw.getText().length() < 8){
             JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
             pw.setText("");
-        }else if(duplicateCheck()){
-            JOptionPane.showMessageDialog(null, "Email is Already Used!!", "Message",JOptionPane.ERROR_MESSAGE);
-            em.setText("");
-            System.out.println("Duplicate Exist");
         }else{
             dbConnector dbc = new dbConnector();
             if(dbc.insertData("INSERT INTO tbl_user(user_fname,user_lname,user_email,user_name,user_pass,account_type,account_status)"
@@ -347,6 +343,7 @@ public class createUserForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
         }
         }
+        
     }//GEN-LAST:event_updateActionPerformed
 
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
@@ -384,6 +381,9 @@ public class createUserForm extends javax.swing.JFrame {
                 pw.setText("");
         }else if(duplicateCheck()){
             System.out.println("Duplicate Exist");
+            
+            JOptionPane.showMessageDialog(null, "Email is Already Used!!", "Message",JOptionPane.ERROR_MESSAGE);
+            em.setText("");
             JOptionPane.showMessageDialog(null, "Username is Already Used!!", "Message",JOptionPane.ERROR_MESSAGE);
             un.setText("");
         }else{
