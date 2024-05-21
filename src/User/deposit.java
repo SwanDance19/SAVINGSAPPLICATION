@@ -7,9 +7,12 @@ package User;
 
 import config.Session;
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import loginForm.login;
 
 /**
  *
@@ -179,6 +182,7 @@ private void displayData() {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Session session = Session.getInstance();
         displayData();
+        String amountText = amount.getText();
     }//GEN-LAST:event_formWindowActivated
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
@@ -189,6 +193,7 @@ private void displayData() {
 
     private void depositMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositMouseClicked
 
+             // Retrieve the amount entered by the user
     String amountText = amount.getText();
     
     // Validate the amount
@@ -208,6 +213,18 @@ private void displayData() {
     
     // Perform the deposit operation
     performDeposit(depositAmount);
+        dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_deposit(deposit)"
+               + "VALUES('"+amount.getText()+"')")){
+                      
+                    userDashboard ud = new userDashboard();
+                    ud.setVisible(true);
+                    this.dispose();
+              }else {
+                JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+
+        
     }//GEN-LAST:event_depositMouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
@@ -299,7 +316,7 @@ private void displayData() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField amount;
+    public javax.swing.JTextField amount;
     private javax.swing.JLabel back;
     private javax.swing.JLabel bal;
     private javax.swing.JLabel deposit;

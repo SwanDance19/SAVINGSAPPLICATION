@@ -15,6 +15,8 @@ public class Session {
     private double balance;
     private static Session instance;
     private int uid;
+    private double deposit;
+    private double withdraw;
     private String fname;
     private String lname;
     private String email;

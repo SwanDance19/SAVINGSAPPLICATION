@@ -10,6 +10,7 @@ import config.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import loginForm.login;
 
 /**
  *
@@ -190,6 +191,8 @@ private void displayData() {
 
     private void withdrawMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_withdrawMouseClicked
 
+        
+        // Retrieve the amount entered by the user
         String amountText = amount15.getText();
 
         // Validate the amount
@@ -209,6 +212,17 @@ private void displayData() {
 
         // Perform the deposit operation
         performWithdraw(withdrawAmount);
+        
+       dbConnector dbc = new dbConnector();
+       if(dbc.insertData("INSERT INTO tbl_withdraw(withdraw)"
+               + "VALUES('"+amount15.getText()+"')")){
+                    
+                    userDashboard ud = new userDashboard();
+                    ud.setVisible(true);
+                    this.dispose();
+              }else {
+                JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_withdrawMouseClicked
 
     private void jPanel49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel49MouseClicked
