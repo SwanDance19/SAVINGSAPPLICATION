@@ -263,7 +263,7 @@ private void performWithdraw(double withdrawAmount) {
             
             if (withdrawAmount > currentBalance) {
                 JOptionPane.showMessageDialog(this, "Insufficient balance for withdrawal.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
+                
             }
 
             

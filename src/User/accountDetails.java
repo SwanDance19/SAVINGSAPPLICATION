@@ -7,13 +7,21 @@ package User;
 
 import config.Session;
 import config.dbConnector;
+import java.awt.Image;
 import java.sql.ResultSet;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import java.sql.SQLException;
 
 public class accountDetails extends javax.swing.JFrame {
 
     public accountDetails() {
         initComponents();
+        
+        Icon x = user.getIcon();
+        ImageIcon icon = (ImageIcon)x;
+        Image image = icon.getImage().getScaledInstance(user.getWidth(),user.getHeight(),Image.SCALE_SMOOTH);
+        user.setIcon(new ImageIcon(image));
     }
     public void displayData(){
         try{
@@ -40,7 +48,7 @@ public class accountDetails extends javax.swing.JFrame {
         uid = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        userimage = new javax.swing.JLabel();
+        user = new javax.swing.JLabel();
         account_fname = new javax.swing.JLabel();
         account_lname = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -125,8 +133,8 @@ public class accountDetails extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(204, 102, 0));
 
-        userimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.jpg"))); // NOI18N
-        userimage.setText("jLabel2");
+        user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        user.setText("jLabel2");
 
         account_fname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         account_fname.setText("First Name");
@@ -150,7 +158,7 @@ public class accountDetails extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(userimage, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(account_lname)
@@ -163,7 +171,7 @@ public class accountDetails extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(userimage, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(account_fname)
                 .addGap(18, 18, 18)
@@ -264,6 +272,6 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel ln;
     private javax.swing.JLabel uid;
-    private javax.swing.JLabel userimage;
+    private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 }

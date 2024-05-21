@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package User;
 
 import config.Session;
@@ -16,43 +12,47 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author vin
- */
+
 public class userDashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form userDashboard
-     */
+
     public userDashboard() {
         initComponents();
         
         
-        Icon x = userimage5.getIcon();
+        Icon x = user.getIcon();
         ImageIcon icon = (ImageIcon)x;
-        Image image = icon.getImage().getScaledInstance(userimage5.getWidth(),userimage5.getHeight(),Image.SCALE_SMOOTH);
-        userimage5.setIcon(new ImageIcon(image));
+        Image image = icon.getImage().getScaledInstance(user.getWidth(),user.getHeight(),Image.SCALE_SMOOTH);
+        user.setIcon(new ImageIcon(image));
         
-        Icon j = account.getIcon();
-        ImageIcon ic = (ImageIcon)j;
-        Image age = ic.getImage().getScaledInstance(account.getWidth(),account.getHeight(),Image.SCALE_SMOOTH);
-        account.setIcon(new ImageIcon(age));
+        Icon c = trans.getIcon();
+        ImageIcon ion = (ImageIcon)c;
+        Image iage = ion.getImage().getScaledInstance(trans.getWidth(),trans.getHeight(),Image.SCALE_SMOOTH);
+        trans.setIcon(new ImageIcon(iage));
         
-        Icon z = deposit.getIcon();
-        ImageIcon i = (ImageIcon)z;
-        Image img = i.getImage().getScaledInstance(deposit.getWidth(),deposit.getHeight(),Image.SCALE_SMOOTH);
-        deposit.setIcon(new ImageIcon(img));
         
-        Icon n = withdraw.getIcon();
-        ImageIcon im = (ImageIcon)n;
-        Image imge = im.getImage().getScaledInstance(withdraw.getWidth(),withdraw.getHeight(),Image.SCALE_SMOOTH);
-        withdraw.setIcon(new ImageIcon(imge));
+        Icon z = depo.getIcon();
+        ImageIcon ic = (ImageIcon)z;
+        Image imag = ic.getImage().getScaledInstance(depo.getWidth(),depo.getHeight(),Image.SCALE_SMOOTH);
+        depo.setIcon(new ImageIcon(imag)); 
         
-        Icon u = transaction.getIcon();
-        ImageIcon wa = (ImageIcon)u;
-        Image we = wa.getImage().getScaledInstance(transaction.getWidth(),transaction.getHeight(),Image.SCALE_SMOOTH);
-        transaction.setIcon(new ImageIcon(we));
+        Icon v = with.getIcon();
+        ImageIcon con = (ImageIcon)v;
+        Image ima = con.getImage().getScaledInstance(with.getWidth(),with.getHeight(),Image.SCALE_SMOOTH);
+        with.setIcon(new ImageIcon(ima));
+        
+        Icon b = with.getIcon();
+        ImageIcon on = (ImageIcon)b;
+        Image im = on.getImage().getScaledInstance(with.getWidth(),with.getHeight(),Image.SCALE_SMOOTH);
+        with.setIcon(new ImageIcon(im));
+        
+        Icon n = acc.getIcon();
+        ImageIcon o = (ImageIcon)n;
+        Image i = o.getImage().getScaledInstance(acc.getWidth(),acc.getHeight(),Image.SCALE_SMOOTH);
+        acc.setIcon(new ImageIcon(i));
+            
+        
+
     }
     
 private void displayData() {
@@ -78,25 +78,25 @@ private void displayData() {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        userimage5 = new javax.swing.JLabel();
         account_fname = new javax.swing.JLabel();
         account_lname = new javax.swing.JLabel();
+        user = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        account = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         bal = new javax.swing.JLabel();
-        deposit = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        withdraw = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        transaction = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        trans = new javax.swing.JLabel();
+        depo = new javax.swing.JLabel();
+        with = new javax.swing.JLabel();
+        acc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -110,37 +110,36 @@ private void displayData() {
 
         jPanel8.setBackground(new java.awt.Color(204, 102, 0));
 
-        userimage5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.jpg"))); // NOI18N
-        userimage5.setText("jLabel2");
-        userimage5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userimage5MouseClicked(evt);
-            }
-        });
-
         account_fname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         account_fname.setText("First Name");
 
         account_lname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         account_lname.setText("Last Name");
 
+        user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        user.setText("jLabel9");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userimage5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(account_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(account_lname, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(account_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(account_lname, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(userimage5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(account_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
@@ -190,15 +189,6 @@ private void displayData() {
         jLabel3.setText("ACCOUNT");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, -1, -1));
 
-        account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.jpg"))); // NOI18N
-        account.setText("jLabel2");
-        account.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accountMouseClicked(evt);
-            }
-        });
-        jPanel1.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 110, 80));
-
         jPanel4.setLayout(null);
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
@@ -244,42 +234,53 @@ private void displayData() {
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 520, 70));
 
-        deposit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deposit.png"))); // NOI18N
-        deposit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                depositMouseClicked(evt);
-            }
-        });
-        jPanel1.add(deposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 120, 80));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("DEPOSIT");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, 20));
-
-        withdraw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/withdraw.png"))); // NOI18N
-        withdraw.setText("jLabel7");
-        withdraw.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                withdrawMouseClicked(evt);
-            }
-        });
-        jPanel1.add(withdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 110, 80));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("WITHDRAW");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
-        transaction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/transaction.png"))); // NOI18N
-        transaction.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                transactionMouseClicked(evt);
-            }
-        });
-        jPanel1.add(transaction, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 100, 80));
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("TRANSACTIONS");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, -1, -1));
+
+        trans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/transhis.png"))); // NOI18N
+        trans.setText("jLabel9");
+        trans.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                transMouseClicked(evt);
+            }
+        });
+        jPanel1.add(trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 110, 80));
+
+        depo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deposit.png"))); // NOI18N
+        depo.setText("jLabel9");
+        depo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                depoMouseClicked(evt);
+            }
+        });
+        jPanel1.add(depo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 110, 80));
+
+        with.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/withdraw.png"))); // NOI18N
+        with.setText("jLabel9");
+        with.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                withMouseClicked(evt);
+            }
+        });
+        jPanel1.add(with, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 110, 80));
+
+        acc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        acc.setText("jLabel9");
+        acc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accMouseClicked(evt);
+            }
+        });
+        jPanel1.add(acc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 110, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -314,38 +315,33 @@ private void displayData() {
        
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
-        accountDetails ad = new accountDetails();
-        ad.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_accountMouseClicked
-
-    private void userimage5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userimage5MouseClicked
-
-    }//GEN-LAST:event_userimage5MouseClicked
-
     private void balMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_balMouseClicked
 
     }//GEN-LAST:event_balMouseClicked
 
-    private void depositMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositMouseClicked
-       deposit dep = new deposit();
-        dep.setVisible(true);
+    private void transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseClicked
+        transaction trans = new transaction();
+        trans.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_depositMouseClicked
+    }//GEN-LAST:event_transMouseClicked
 
-    private void withdrawMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_withdrawMouseClicked
+    private void withMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_withMouseClicked
        withdraw wit = new withdraw();
-        wit.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_withdrawMouseClicked
+       wit.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_withMouseClicked
 
-    private void transactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactionMouseClicked
-    transaction trans = new transaction();
-    trans.setVisible(true);
-    this.dispose();
-   
-    }//GEN-LAST:event_transactionMouseClicked
+    private void depoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depoMouseClicked
+      deposit dep = new deposit();
+      dep.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_depoMouseClicked
+
+    private void accMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseClicked
+      accountDetails ad = new accountDetails();
+      ad.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_accMouseClicked
 
 
     /**
@@ -387,11 +383,11 @@ private void displayData() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel account;
+    private javax.swing.JLabel acc;
     private javax.swing.JLabel account_fname;
     private javax.swing.JLabel account_lname;
     private javax.swing.JLabel bal;
-    private javax.swing.JLabel deposit;
+    private javax.swing.JLabel depo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -405,8 +401,8 @@ private void displayData() {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JLabel transaction;
-    private javax.swing.JLabel userimage5;
-    private javax.swing.JLabel withdraw;
+    private javax.swing.JLabel trans;
+    private javax.swing.JLabel user;
+    private javax.swing.JLabel with;
     // End of variables declaration//GEN-END:variables
 }

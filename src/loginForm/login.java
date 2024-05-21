@@ -10,8 +10,6 @@ import java.awt.event.KeyEvent;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import signupForm.signup;
@@ -23,6 +21,7 @@ public class login extends javax.swing.JFrame {
     }
     
      static String status;
+     
      static String type;
      
     public static boolean login(String username, String password) {
