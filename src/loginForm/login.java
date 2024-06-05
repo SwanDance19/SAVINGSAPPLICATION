@@ -63,47 +63,67 @@ public class login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        ckbox = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Username:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, 15));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Password:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
-        jLabel3.setText("MONEYSAVE");
-
+        username.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        username.setText("                                   ");
+        username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         username.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 usernameKeyPressed(evt);
             }
         });
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 200, 30));
 
+        password.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 passwordKeyPressed(evt);
             }
         });
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 200, 30));
 
         login.setText("Login");
+        login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 60, 30));
 
-        jLabel4.setText("Don't have an Account ?");
+        jButton1.setText("Exit");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 60, 30));
 
         jButton2.setText("Signup");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,67 +131,34 @@ public class login extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
 
-        jButton1.setText("Exit");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Don't have an Account ?");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 170, 20));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel3.setText("MONEYSAVE");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 230, -1));
+
+        ckbox.setBackground(new java.awt.Color(255, 255, 255));
+        ckbox.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ckbox.setText(" ");
+        ckbox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ckbox.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Desktop\\schoolmanagement\\src\\images\\icons8-eye-24.png")); // NOI18N
+        ckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckboxActionPerformed(evt);
             }
         });
+        jPanel1.add(ckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 30, 20));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(username, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(login)
-                                .addGap(23, 23, 23)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(257, 257, 257))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jLabel3)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login)
-                    .addComponent(jButton1))
-                .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton2))
-                .addContainerGap(191, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save2.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 50, 50));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\cropped-image-of-hand-putting-coins-in-jars-with-plants-755740897-5ab88ee1875db9003759d390.jpg")); // NOI18N
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,32 +175,10 @@ public class login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-
-
-            if(login(username.getText(),password.getText())){
-                
-                if(!status.equals("Active")){
-                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
-                }else{
-                    if(type.equals("Admin")){
-                        adminDashboard ads = new adminDashboard();
-                        ads.setVisible(true);
-                        this.dispose();
-                    }else if(type.equals("User")){
-                        userDashboard udb = new userDashboard();
-                        udb.setVisible(true);
-                        this.dispose();
-                    }else{
-                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }else{
-                JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
-            }
-        
-    
-    }//GEN-LAST:event_loginActionPerformed
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        JFrame frame = new JFrame("Exit");
+        System.exit(0);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         signup su = new signup();
@@ -221,18 +186,38 @@ public class login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-           JFrame frame = new JFrame("Exit");
-           System.exit(0);      
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+
+        if(login(username.getText(),password.getText())){
+
+            if(!status.equals("Active")){
+                JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+            }else{
+                if(type.equals("Admin")){
+                    adminDashboard ads = new adminDashboard();
+                    ads.setVisible(true);
+                    this.dispose();
+                }else if(type.equals("User")){
+                    userDashboard udb = new userDashboard();
+                    udb.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_loginActionPerformed
 
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         if(evt.getKeyCode () == KeyEvent.VK_ENTER){
-            
+
             if(login(username.getText(),password.getText())){
-                
+
                 if(!status.equals("Active")){
-                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);  
+                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
                 }else{
                     if(type.equals("Admin")){
                         adminDashboard ads = new adminDashboard();
@@ -253,35 +238,43 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordKeyPressed
 
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
-     if(evt.getKeyCode () == KeyEvent.VK_ENTER){
-            
-         if(login(username.getText(),password.getText())){
-             
-             if(!status.equals("Active")){
-                 JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
-             }else{
-                 if(type.equals("Admin")){
-                     adminDashboard ads = new adminDashboard();
-                     ads.setVisible(true);
-                     this.dispose();
-                 }else if(type.equals("User")){
-                     userDashboard udb = new userDashboard();
-                     udb.setVisible(true);
-                     this.dispose();
-                 }else{
-                     JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
-                 }
-             }
-         }
-        
-         if(username.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Please fill out username!!", "Message",JOptionPane.ERROR_MESSAGE);
-         }else if(password.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Please fill out password!!", "Message",JOptionPane.ERROR_MESSAGE);
-        }
-          
+        if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+
+            if(login(username.getText(),password.getText())){
+
+                if(!status.equals("Active")){
+                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
+                }else{
+                    if(type.equals("Admin")){
+                        adminDashboard ads = new adminDashboard();
+                        ads.setVisible(true);
+                        this.dispose();
+                    }else if(type.equals("User")){
+                        userDashboard udb = new userDashboard();
+                        udb.setVisible(true);
+                        this.dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
+                    }
+                }
+            }
+
+            if(username.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Please fill out username!!", "Message",JOptionPane.ERROR_MESSAGE);
+            }else if(password.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Please fill out password!!", "Message",JOptionPane.ERROR_MESSAGE);
+            }
+
         }
     }//GEN-LAST:event_usernameKeyPressed
+
+    private void ckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckboxActionPerformed
+        if(ckbox.isSelected()){
+            password.setEchoChar((char)0);
+        }else{
+            password.setEchoChar('*');
+        }
+    }//GEN-LAST:event_ckboxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,12 +312,15 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox ckbox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JPasswordField password;

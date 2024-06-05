@@ -7,22 +7,19 @@ package User;
 
 import config.Session;
 import config.dbConnector;
-import java.awt.Image;
+import java.awt.Color;
 import java.sql.ResultSet;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import java.sql.SQLException;
 
 public class accountDetails extends javax.swing.JFrame {
 
     public accountDetails() {
         initComponents();
-        
-        Icon x = user.getIcon();
-        ImageIcon icon = (ImageIcon)x;
-        Image image = icon.getImage().getScaledInstance(user.getWidth(),user.getHeight(),Image.SCALE_SMOOTH);
-        user.setIcon(new ImageIcon(image));
     }
+    
+    Color navcolor = new Color(204,102,0);
+    Color hovercolor = new Color(255,204,153);
+    
     public void displayData(){
         try{
             dbConnector dbc = new dbConnector();
@@ -48,10 +45,11 @@ public class accountDetails extends javax.swing.JFrame {
         uid = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        user = new javax.swing.JLabel();
+        user1 = new javax.swing.JLabel();
         account_fname = new javax.swing.JLabel();
         account_lname = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        cpPanel = new javax.swing.JPanel();
+        cp = new javax.swing.JLabel();
         fn = new javax.swing.JLabel();
         ln = new javax.swing.JLabel();
         em = new javax.swing.JLabel();
@@ -75,6 +73,7 @@ public class accountDetails extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -90,98 +89,90 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("ACCOUNT INFORMATION");
+        jLabel1.setText("Account Information");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         uid.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         uid.setText("ID");
+        jPanel3.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
         back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        back.setText("BACK");
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inArrow.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backMouseClicked(evt);
             }
         });
+        jPanel3.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(uid)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
-                .addComponent(back)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(back)
-                    .addComponent(uid))
-                .addContainerGap())
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 50));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 60));
 
         jPanel5.setBackground(new java.awt.Color(204, 102, 0));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
-        user.setText("jLabel2");
+        user1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\my-account-5.png")); // NOI18N
+        jPanel5.add(user1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 95, -1, 90));
 
         account_fname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         account_fname.setText("First Name");
+        jPanel5.add(account_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 191, -1, -1));
 
         account_lname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         account_lname.setText("Last Name");
+        jPanel5.add(account_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 231, -1, -1));
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Change Password");
-        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+        cpPanel.setBackground(new java.awt.Color(204, 102, 0));
+        cpPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel19MouseClicked(evt);
+                cpPanelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cpPanelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cpPanelMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(account_lname)
-                            .addComponent(account_fname))
-                        .addGap(31, 31, 31))
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+        cp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cp.setText("Change Password");
+        cp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cpMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cpMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cpMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cpPanelLayout = new javax.swing.GroupLayout(cpPanel);
+        cpPanel.setLayout(cpPanelLayout);
+        cpPanelLayout.setHorizontalGroup(
+            cpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cpPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(cp, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_fname)
-                .addGap(18, 18, 18)
-                .addComponent(account_lname)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addComponent(jLabel19)
-                .addGap(61, 61, 61))
+        cpPanelLayout.setVerticalGroup(
+            cpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cpPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cp)
+                .addGap(19, 19, 19))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 420));
+        jPanel5.add(cpPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 314, -1, 43));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 250, 380));
         jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 250, 40));
         jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 240, 40));
         jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 240, 40));
@@ -194,7 +185,9 @@ public class accountDetails extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -204,7 +197,7 @@ public class accountDetails extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
            Session session = Session.getInstance();
            
-           uid.setText("USER ID :"+session.getUid());
+           uid.setText("ID :"+session.getUid());
            fn.setText(""+session.getFname());
            ln.setText(""+session.getLname());
            em.setText(""+session.getEmail());
@@ -212,17 +205,39 @@ public class accountDetails extends javax.swing.JFrame {
            account_lname.setText(""+session.getLname());
     }//GEN-LAST:event_formWindowActivated
 
-    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+    private void cpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpMouseClicked
         changePassword cp = new changePassword();
         cp.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel19MouseClicked
+    }//GEN-LAST:event_cpMouseClicked
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         userDashboard ud = new userDashboard();
         ud.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backMouseClicked
+
+    private void cpPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpPanelMouseClicked
+        changePassword cp = new changePassword();
+        cp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cpPanelMouseClicked
+
+    private void cpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpMouseEntered
+       cpPanel.setBackground(hovercolor);
+    }//GEN-LAST:event_cpMouseEntered
+
+    private void cpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpMouseExited
+        cpPanel.setBackground(navcolor);
+    }//GEN-LAST:event_cpMouseExited
+
+    private void cpPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpPanelMouseExited
+       cpPanel.setBackground(navcolor);
+    }//GEN-LAST:event_cpPanelMouseExited
+
+    private void cpPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpPanelMouseEntered
+       cpPanel.setBackground(hovercolor); 
+    }//GEN-LAST:event_cpPanelMouseEntered
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -259,12 +274,13 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel account_fname;
     private javax.swing.JLabel account_lname;
     private javax.swing.JLabel back;
+    private javax.swing.JLabel cp;
+    private javax.swing.JPanel cpPanel;
     private javax.swing.JLabel em;
     private javax.swing.JLabel fn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -272,6 +288,6 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel ln;
     private javax.swing.JLabel uid;
-    private javax.swing.JLabel user;
+    private javax.swing.JLabel user1;
     // End of variables declaration//GEN-END:variables
 }

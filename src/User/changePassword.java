@@ -79,7 +79,7 @@ public class changePassword extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CHANGE PASSWORD");
+        jLabel1.setText("Change  Password");
 
         uid.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         uid.setText("ID");
@@ -89,9 +89,9 @@ public class changePassword extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 441, Short.MAX_VALUE)
                 .addComponent(uid)
                 .addGap(39, 39, 39))
         );
@@ -124,8 +124,7 @@ public class changePassword extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(204, 102, 0));
 
-        userimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.jpg"))); // NOI18N
-        userimage.setText("jLabel2");
+        userimage.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\my-account-5.png")); // NOI18N
 
         account_fname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         account_fname.setText("First Name");
@@ -138,15 +137,13 @@ public class changePassword extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(userimage, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(account_lname)
-                            .addComponent(account_fname))
-                        .addGap(31, 31, 31)))
-                .addGap(40, 40, 40))
+                    .addComponent(userimage)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(account_lname)
+                        .addComponent(account_fname)))
+                .addGap(71, 71, 71))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
