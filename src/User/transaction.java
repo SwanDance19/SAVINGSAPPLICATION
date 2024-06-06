@@ -1,6 +1,7 @@
 
 package User;
 
+import config.Session;
 import config.dbConnector;
 import java.awt.Color;
 import java.sql.ResultSet;
@@ -17,24 +18,30 @@ public class transaction extends javax.swing.JFrame {
     Color hovercolor = new Color(255,204,153);
 
 
-public void displayData(){
-        try{
-            dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT tbl_deposit.deposit,"
-                + "tbl_withdraw.withdraw,"
-                + "tbl_user.balance "
+public void displayData() {
+    try {
+        // Connect to the database
+        dbConnector dbc = new dbConnector();
+        
+        // Retrieve transactions for the current user from the database
+        ResultSet rs = dbc.getData("SELECT trans_tbl.user_id, trans_tbl.deposit_id, trans_tbl.withdraw_id, "
+                + "dep_tbl.deposit, with_tbl.withdraw, tbl_user.balance "
                 + "FROM trans_tbl "
-                + "LEFT JOIN tbl_deposit ON trans_tbl.dep_id=tbl_deposit.d_id "
-                + "LEFT JOIN tbl_withdraw ON trans_tbl.with_id=tbl_withdraw.w_id "
-                + "LEFT JOIN tbl_user ON trans_tbl.users_id = tbl_user.user_id");
-            transTable.setModel(DbUtils.resultSetToTableModel(rs));
-             rs.close();
-        }catch(SQLException ex){
-            System.out.println("Errors: "+ex.getMessage());
-        }
-    
-    
+                + "LEFT JOIN dep_tbl ON trans_tbl.deposit_id = dep_tbl.id "
+                + "LEFT JOIN with_tbl ON trans_tbl.withdraw_id = with_tbl.id "
+                + "LEFT JOIN tbl_user ON trans_tbl.user_id = tbl_user.user_id "
+                + "WHERE trans_tbl.user_id = " + Session.getInstance().getUid());
+                transTable.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        // Close the result set
+        rs.close();
+    } catch (SQLException ex) {
+        // Handle any SQL errors
+        System.out.println("Errors: " + ex.getMessage());
     }
+}
+
+
 
 
       
@@ -192,9 +199,7 @@ public void displayData(){
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -204,7 +209,7 @@ public void displayData(){
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
       // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
-
+    
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
        userDashboard ud = new userDashboard();
         ud.setVisible(true);
@@ -281,4 +286,6 @@ public void displayData(){
     private javax.swing.JPanel printPanel;
     private javax.swing.JTable transTable;
     // End of variables declaration//GEN-END:variables
+
+
 }

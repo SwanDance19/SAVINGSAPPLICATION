@@ -87,6 +87,7 @@ public class usersForm extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inArrow.png"))); // NOI18N
@@ -241,6 +242,7 @@ public class usersForm extends javax.swing.JFrame {
         );
 
         users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users-icon.png"))); // NOI18N
+        users.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         usersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -732,15 +732,17 @@ try {
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void acc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseClicked
-        // TODO add your handling code here:
+              accountDetails ad = new accountDetails();
+      ad.setVisible(true);
+      this.dispose();
     }//GEN-LAST:event_acc1MouseClicked
 
     private void acc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseEntered
-        // TODO add your handling code here:
+        maPanel.setBackground(hovercolor);
     }//GEN-LAST:event_acc1MouseEntered
 
     private void acc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseExited
-        // TODO add your handling code here:
+          maPanel.setBackground(navcolor);
     }//GEN-LAST:event_acc1MouseExited
 
 

@@ -16,6 +16,7 @@ public class Session {
     private static Session instance;
     private int uid;
     private double deposit;
+    private double amount;
     private double withdraw;
     private String fname;
     private String lname;
@@ -103,7 +104,13 @@ public class Session {
         this.status = status;
     }
 
-
+    public double getAmount(double amount){
+        return amount;
+    }
+    
+    public void setAmount(double amount){
+        this.amount = amount;
+    }
 
 
 

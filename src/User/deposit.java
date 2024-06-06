@@ -55,12 +55,13 @@ private void displayData() {
         amount = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         back = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        deposit = new javax.swing.JLabel();
+        deposit = new javax.swing.JPanel();
+        dep = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         uid = new javax.swing.JLabel();
         back1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -70,14 +71,20 @@ private void displayData() {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 220, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Available Balance:  ₱");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 166, 201, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Amount:                   ₱");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 221, -1, -1));
 
         bal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel1.add(bal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, 40));
+        jPanel1.add(amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 214, 220, 40));
 
         jPanel4.setBackground(new java.awt.Color(153, 102, 0));
         jPanel4.setLayout(null);
@@ -92,23 +99,27 @@ private void displayData() {
         jPanel4.add(back);
         back.setBounds(30, 10, 50, 20);
 
-        jPanel5.setBackground(new java.awt.Color(153, 102, 0));
-        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel5MouseClicked(evt);
-            }
-        });
-        jPanel5.setLayout(null);
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 272, 100, 40));
 
-        deposit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        deposit.setText("Deposit");
+        deposit.setBackground(new java.awt.Color(153, 102, 0));
         deposit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 depositMouseClicked(evt);
             }
         });
-        jPanel5.add(deposit);
-        deposit.setBounds(20, 10, 68, 20);
+        deposit.setLayout(null);
+
+        dep.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        dep.setText("Deposit");
+        dep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                depMouseClicked(evt);
+            }
+        });
+        deposit.add(dep);
+        dep.setBounds(20, 10, 68, 20);
+
+        jPanel1.add(deposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 272, 108, 40));
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 0));
         jPanel3.setLayout(null);
@@ -121,7 +132,7 @@ private void displayData() {
         uid.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         uid.setText("ID");
         jPanel3.add(uid);
-        uid.setBounds(240, 10, 50, 44);
+        uid.setBounds(230, 10, 50, 44);
 
         back1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         back1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inArrow.png"))); // NOI18N
@@ -131,61 +142,13 @@ private void displayData() {
             }
         });
         jPanel3.add(back1);
-        back1.setBounds(410, 20, 40, 30);
+        back1.setBounds(760, 20, 40, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jLabel1))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(16, 16, 16))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(amount, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
-                .addGap(14, 14, 14))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bal, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(11, 11, 11))
-        );
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 65));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/How-to-Deposit-Cash-at-an-Online-Only-Bank-Story.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 370, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,7 +158,7 @@ private void displayData() {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
         );
 
         pack();
@@ -214,8 +177,43 @@ private void displayData() {
         this.dispose();
     }//GEN-LAST:event_backMouseClicked
 
+    private void depMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depMouseClicked
+
+// Retrieve the amount entered by the user
+String amountText = amount.getText();
+
+// Validate the amount
+if (amountText.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Please enter the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Check if the amount is a valid number
+double depositAmount;
+try {
+    depositAmount = Double.parseDouble(amountText);
+} catch (NumberFormatException ex) {
+    JOptionPane.showMessageDialog(this, "Please enter a valid number for the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Perform the deposit operation
+performDeposit(depositAmount);
+int userId = Session.getInstance().getUid();
+
+// Insert the deposit amount into dep_tbl
+dbConnector dbc = new dbConnector();
+if (dbc.insertData("INSERT INTO dep_tbl(user_id, deposit) VALUES (" + userId + ", " + depositAmount + ")")) {
+    userDashboard ud = new userDashboard();
+    ud.setVisible(true);
+    this.dispose();
+} else {
+    JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
+}
+
+    }//GEN-LAST:event_depMouseClicked
+
     private void depositMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositMouseClicked
-
              // Retrieve the amount entered by the user
     String amountText = amount.getText();
     
@@ -236,42 +234,7 @@ private void displayData() {
     
     // Perform the deposit operation
     performDeposit(depositAmount);
-        dbConnector dbc = new dbConnector();
-       if(dbc.insertData("INSERT INTO tbl_deposit(deposit)"
-               + "VALUES('"+amount.getText()+"')")){
-                      
-                    userDashboard ud = new userDashboard();
-                    ud.setVisible(true);
-                    this.dispose();
-              }else {
-                JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
-        }
-
-        
     }//GEN-LAST:event_depositMouseClicked
-
-    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-             // Retrieve the amount entered by the user
-    String amountText = amount.getText();
-    
-    // Validate the amount
-    if (amountText.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please enter the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    // Check if the amount is a valid number
-    double depositAmount;
-    try {
-        depositAmount = Double.parseDouble(amountText);
-    } catch (NumberFormatException ex) {
-        JOptionPane.showMessageDialog(this, "Please enter a valid number for the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    // Perform the deposit operation
-    performDeposit(depositAmount);
-    }//GEN-LAST:event_jPanel5MouseClicked
 
     private void back1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back1MouseClicked
         userDashboard ud = new userDashboard();
@@ -349,15 +312,16 @@ private void displayData() {
     private javax.swing.JLabel back;
     private javax.swing.JLabel back1;
     private javax.swing.JLabel bal;
-    private javax.swing.JLabel deposit;
+    private javax.swing.JLabel dep;
+    private javax.swing.JPanel deposit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel uid;
     // End of variables declaration//GEN-END:variables
 }

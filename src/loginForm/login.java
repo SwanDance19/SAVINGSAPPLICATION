@@ -150,7 +150,7 @@ public class login extends javax.swing.JFrame {
                 ckboxActionPerformed(evt);
             }
         });
-        jPanel1.add(ckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, 30, 20));
+        jPanel1.add(ckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 180, 30, 20));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save2.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 50, 50));

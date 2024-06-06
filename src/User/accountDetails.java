@@ -50,6 +50,7 @@ public class accountDetails extends javax.swing.JFrame {
         account_lname = new javax.swing.JLabel();
         cpPanel = new javax.swing.JPanel();
         cp = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         fn = new javax.swing.JLabel();
         ln = new javax.swing.JLabel();
         em = new javax.swing.JLabel();
@@ -94,11 +95,11 @@ public class accountDetails extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Account Information");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         uid.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         uid.setText("ID");
-        jPanel3.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+        jPanel3.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inArrow.png"))); // NOI18N
@@ -170,9 +171,18 @@ public class accountDetails extends javax.swing.JFrame {
 
         jPanel5.add(cpPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 314, -1, 43));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/my-account-5.png"))); // NOI18N
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 100, 110));
+
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 250, 380));
+
+        fn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 250, 40));
+
+        ln.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 240, 40));
+
+        em.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 240, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,6 +287,7 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

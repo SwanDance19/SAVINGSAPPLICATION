@@ -52,11 +52,12 @@ private void displayData() {
         jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
         bal15 = new javax.swing.JLabel();
-        amount15 = new javax.swing.JTextField();
+        amount = new javax.swing.JTextField();
         jPanel47 = new javax.swing.JPanel();
         back15 = new javax.swing.JLabel();
         jPanel49 = new javax.swing.JPanel();
         withdraw = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -66,6 +67,7 @@ private void displayData() {
         });
 
         jPanel48.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel48.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel46.setBackground(new java.awt.Color(153, 102, 0));
         jPanel46.setLayout(null);
@@ -73,7 +75,7 @@ private void displayData() {
         uid.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         uid.setText("ID");
         jPanel46.add(uid);
-        uid.setBounds(300, 10, 44, 44);
+        uid.setBounds(260, 10, 44, 44);
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel64.setText("Withdraw");
@@ -88,15 +90,21 @@ private void displayData() {
             }
         });
         jPanel46.add(back1);
-        back1.setBounds(500, 20, 40, 30);
+        back1.setBounds(820, 20, 40, 30);
+
+        jPanel48.add(jPanel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 893, 67));
 
         jLabel61.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel61.setText("Available Balance:  ₱");
+        jPanel48.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 138, -1, -1));
 
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel62.setText("Amount:                   ₱");
+        jPanel48.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 217, -1, -1));
 
         bal15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel48.add(bal15, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 125, 312, 45));
+        jPanel48.add(amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 207, 312, 46));
 
         jPanel47.setBackground(new java.awt.Color(153, 102, 0));
         jPanel47.setLayout(null);
@@ -110,6 +118,8 @@ private void displayData() {
         });
         jPanel47.add(back15);
         back15.setBounds(30, 10, 50, 20);
+
+        jPanel48.add(jPanel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 271, 100, 40));
 
         jPanel49.setBackground(new java.awt.Color(153, 102, 0));
         jPanel49.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,57 +139,21 @@ private void displayData() {
         jPanel49.add(withdraw);
         withdraw.setBounds(20, 10, 100, 20);
 
-        javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
-        jPanel48.setLayout(jPanel48Layout);
-        jPanel48Layout.setHorizontalGroup(
-            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel48Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel61)
-                    .addComponent(jLabel62))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bal15, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel48Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(amount15, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel48Layout.setVerticalGroup(
-            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel48Layout.createSequentialGroup()
-                .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bal15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel48Layout.createSequentialGroup()
-                        .addComponent(jLabel61)
-                        .addGap(10, 10, 10)))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel62)
-                    .addComponent(amount15, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
+        jPanel48.add(jPanel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 271, 129, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dawatmoney.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel48.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 370, 280));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel48, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
         );
 
         pack();
@@ -196,12 +170,12 @@ private void displayData() {
 
         
         // Retrieve the amount entered by the user
-        String amountText = amount15.getText();
+        String amountText = amount.getText();
 
         // Validate the amount
         if (amountText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+            JOptionPane.showMessageDialog(this, "Please enter the withdraw amount.", "Error", JOptionPane.ERROR_MESSAGE);
+            return ;
         }
 
         // Check if the amount is a valid number
@@ -209,28 +183,28 @@ private void displayData() {
         try {
             withdrawAmount = Double.parseDouble(amountText);
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid number for the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please enter a valid number for the withdraw amount.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Perform the deposit operation
-        performWithdraw(withdrawAmount);
-        
-       dbConnector dbc = new dbConnector();
-       if(dbc.insertData("INSERT INTO tbl_withdraw(withdraw)"
-               + "VALUES('"+amount15.getText()+"')")){
-                    
-                    userDashboard ud = new userDashboard();
-                    ud.setVisible(true);
-                    this.dispose();
-              }else {
-                JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
-        }
+ 
+performWithdraw(withdrawAmount);
+int userId = Session.getInstance().getUid();
+ // Insert the deposit amount into dep_tbl
+dbConnector dbc = new dbConnector();
+if (dbc.insertData("INSERT INTO with_tbl(user_id, withdraw) VALUES (" + userId + ", " + withdrawAmount + ")")) {
+    userDashboard ud = new userDashboard();
+    ud.setVisible(true);
+    this.dispose();
+} else {
+    JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
+}
+
     }//GEN-LAST:event_withdrawMouseClicked
 
     private void jPanel49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel49MouseClicked
         // Retrieve the amount entered by the user
-        String amountText = amount15.getText();
+        String amountText = amount.getText();
 
         // Validate the amount
         if (amountText.isEmpty()) {
@@ -254,6 +228,7 @@ private void displayData() {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Session session = Session.getInstance();
         displayData();
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void back1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back1MouseClicked
@@ -268,11 +243,10 @@ private void performWithdraw(double withdrawAmount) {
         ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
         if (rs.next()) {
             double currentBalance = rs.getDouble("balance");
-
             
             if (withdrawAmount > currentBalance) {
                 JOptionPane.showMessageDialog(this, "Insufficient balance for withdrawal.", "Error", JOptionPane.ERROR_MESSAGE);
-                
+            return;
             }
 
             
@@ -290,7 +264,7 @@ private void performWithdraw(double withdrawAmount) {
             userDashboard us = new userDashboard();
             us.setVisible(true);
             this.dispose();
-        } else {
+        }else{ 
             System.out.println("No balance data found for the current user.");
         }
         rs.close();
@@ -335,10 +309,11 @@ private void performWithdraw(double withdrawAmount) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField amount15;
+    private javax.swing.JTextField amount;
     private javax.swing.JLabel back1;
     private javax.swing.JLabel back15;
     private javax.swing.JLabel bal15;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel64;
