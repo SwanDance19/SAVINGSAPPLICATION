@@ -56,6 +56,7 @@ private void displayData() {
         account_fname = new javax.swing.JLabel();
         account_lname = new javax.swing.JLabel();
         user = new javax.swing.JLabel();
+        acc = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -65,12 +66,14 @@ private void displayData() {
         depPanel = new javax.swing.JPanel();
         depo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         maPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        acc = new javax.swing.JLabel();
+        acc1 = new javax.swing.JLabel();
         widPanel = new javax.swing.JPanel();
         with = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         tranPanel = new javax.swing.JPanel();
         trans = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -137,7 +140,6 @@ private void displayData() {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\logout-icon.png")); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
@@ -149,7 +151,7 @@ private void displayData() {
         jLabel2.setText("Hello !!");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, 30));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\save2.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save2.png"))); // NOI18N
         jLabel10.setText("jLabel10");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
 
@@ -166,9 +168,22 @@ private void displayData() {
         account_lname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         account_lname.setText("Last Name");
         jPanel8.add(account_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 100, 34));
-
-        user.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\my-account-5.png")); // NOI18N
         jPanel8.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 90));
+
+        acc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/my-account-5.png"))); // NOI18N
+        acc.setText("jLabel9");
+        acc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                accMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                accMouseExited(evt);
+            }
+        });
+        jPanel8.add(acc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 100, -1));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 190, 430));
 
@@ -188,13 +203,13 @@ private void displayData() {
 
         ckbox.setBackground(new java.awt.Color(255, 255, 255));
         ckbox.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        ckbox.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Desktop\\schoolmanagement\\src\\images\\icons8-eye-24.png")); // NOI18N
+        ckbox.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\OneDrive\\Pictures\\eye.png")); // NOI18N
         ckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ckboxActionPerformed(evt);
             }
         });
-        jPanel9.add(ckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 30, 20));
+        jPanel9.add(ckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, 20));
 
         bal.setBackground(new java.awt.Color(240, 240, 240));
         bal.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -228,8 +243,8 @@ private void displayData() {
                 depPanelMouseExited(evt);
             }
         });
+        depPanel.setLayout(null);
 
-        depo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Desktop\\SAVINGSAPPLICATION\\src\\images\\deposit.png")); // NOI18N
         depo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 depoMouseClicked(evt);
@@ -241,6 +256,8 @@ private void displayData() {
                 depoMouseExited(evt);
             }
         });
+        depPanel.add(depo);
+        depo.setBounds(136, 16, 0, 100);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Deposit");
@@ -255,29 +272,12 @@ private void displayData() {
                 jLabel6MouseExited(evt);
             }
         });
+        depPanel.add(jLabel6);
+        jLabel6.setBounds(38, 110, 68, 20);
 
-        javax.swing.GroupLayout depPanelLayout = new javax.swing.GroupLayout(depPanel);
-        depPanel.setLayout(depPanelLayout);
-        depPanelLayout.setHorizontalGroup(
-            depPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(depPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(37, 37, 37))
-            .addGroup(depPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(depo)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        depPanelLayout.setVerticalGroup(
-            depPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(depPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(depo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deposit.png"))); // NOI18N
+        depPanel.add(jLabel11);
+        jLabel11.setBounds(20, 10, 114, 100);
 
         jPanel1.add(depPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 150, 140));
 
@@ -309,17 +309,17 @@ private void displayData() {
             }
         });
 
-        acc.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\my-account-5.png")); // NOI18N
-        acc.setText("jLabel9");
-        acc.addMouseListener(new java.awt.event.MouseAdapter() {
+        acc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/my-account-5.png"))); // NOI18N
+        acc1.setText("jLabel9");
+        acc1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accMouseClicked(evt);
+                acc1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                accMouseEntered(evt);
+                acc1MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                accMouseExited(evt);
+                acc1MouseExited(evt);
             }
         });
 
@@ -328,23 +328,23 @@ private void displayData() {
         maPanelLayout.setHorizontalGroup(
             maPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(maPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(maPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(23, 23, 23)
+                .addGroup(maPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(acc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(acc1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         maPanelLayout.setVerticalGroup(
             maPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(maPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(acc)
+                .addComponent(acc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jPanel1.add(maPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, -1, -1));
+        jPanel1.add(maPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, -1, 160));
 
         widPanel.setBackground(new java.awt.Color(255, 153, 0));
         widPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -359,8 +359,8 @@ private void displayData() {
                 widPanelMouseExited(evt);
             }
         });
+        widPanel.setLayout(null);
 
-        with.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Desktop\\SAVINGSAPPLICATION\\src\\images\\withdraw.png")); // NOI18N
         with.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 withMouseClicked(evt);
@@ -372,6 +372,8 @@ private void displayData() {
                 withMouseExited(evt);
             }
         });
+        widPanel.add(with);
+        with.setBounds(70, 16, 0, 95);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Withdraw");
@@ -386,29 +388,12 @@ private void displayData() {
                 jLabel8MouseExited(evt);
             }
         });
+        widPanel.add(jLabel8);
+        jLabel8.setBounds(30, 110, 89, 17);
 
-        javax.swing.GroupLayout widPanelLayout = new javax.swing.GroupLayout(widPanel);
-        widPanel.setLayout(widPanelLayout);
-        widPanelLayout.setHorizontalGroup(
-            widPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, widPanelLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(widPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(with)
-                    .addGroup(widPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel8)))
-                .addGap(21, 21, 21))
-        );
-        widPanelLayout.setVerticalGroup(
-            widPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(widPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(with, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-        );
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/withdraw.png"))); // NOI18N
+        widPanel.add(jLabel12);
+        jLabel12.setBounds(30, 10, 110, 90);
 
         jPanel1.add(widPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 150, 140));
 
@@ -426,7 +411,7 @@ private void displayData() {
             }
         });
 
-        trans.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Desktop\\SAVINGSAPPLICATION\\src\\images\\transhis.png")); // NOI18N
+        trans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/transhis.png"))); // NOI18N
         trans.setText("jLabel9");
         trans.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -458,26 +443,24 @@ private void displayData() {
         tranPanel.setLayout(tranPanelLayout);
         tranPanelLayout.setHorizontalGroup(
             tranPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tranPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(trans, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tranPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(tranPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(trans, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addContainerGap())
         );
         tranPanelLayout.setVerticalGroup(
             tranPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tranPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(trans)
+                .addComponent(trans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jPanel1.add(tranPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 150, -1));
+        jPanel1.add(tranPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 150, 160));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -748,6 +731,18 @@ try {
 
     }//GEN-LAST:event_jPanel3MouseClicked
 
+    private void acc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_acc1MouseClicked
+
+    private void acc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_acc1MouseEntered
+
+    private void acc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_acc1MouseExited
+
 
     /**
      * @param args the command line arguments
@@ -789,6 +784,7 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc;
+    private javax.swing.JLabel acc1;
     private javax.swing.JLabel account_fname;
     private javax.swing.JLabel account_lname;
     private javax.swing.JTextField bal;
@@ -797,6 +793,8 @@ try {
     private javax.swing.JLabel depo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

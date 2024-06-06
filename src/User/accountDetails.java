@@ -114,8 +114,6 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(204, 102, 0));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        user1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\my-account-5.png")); // NOI18N
         jPanel5.add(user1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 95, -1, 90));
 
         account_fname.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -185,9 +183,7 @@ public class accountDetails extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

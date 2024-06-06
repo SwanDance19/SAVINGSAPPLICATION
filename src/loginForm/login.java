@@ -63,16 +63,17 @@ public class login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        username = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         ckbox = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,21 +83,11 @@ public class login extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Username:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, 15));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, 15));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Password:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
-
-        username.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        username.setText("                                   ");
-        username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        username.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                usernameKeyPressed(evt);
-            }
-        });
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 200, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
 
         password.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -105,25 +96,25 @@ public class login extends javax.swing.JFrame {
                 passwordKeyPressed(evt);
             }
         });
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 200, 30));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 200, 30));
 
         login.setText("Login");
-        login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        login.setBorder(null);
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 60, 30));
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 60, 30));
 
         jButton1.setText("Exit");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.setBorder(null);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 60, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 60, 30));
 
         jButton2.setText("Signup");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,34 +122,45 @@ public class login extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
+
+        username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usernameKeyPressed(evt);
+            }
+        });
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Don't have an Account ?");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 170, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 170, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setText("MONEYSAVE");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 230, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 230, -1));
 
         ckbox.setBackground(new java.awt.Color(255, 255, 255));
         ckbox.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         ckbox.setText(" ");
         ckbox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        ckbox.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Desktop\\schoolmanagement\\src\\images\\icons8-eye-24.png")); // NOI18N
+        ckbox.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\OneDrive\\Pictures\\eye.png")); // NOI18N
         ckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ckboxActionPerformed(evt);
             }
         });
-        jPanel1.add(ckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 30, 20));
+        jPanel1.add(ckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, 30, 20));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save2.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 50, 50));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 50, 50));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Downloads\\cropped-image-of-hand-putting-coins-in-jars-with-plants-755740897-5ab88ee1875db9003759d390.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/The_power_of_saving_1692509261865_1692509262025.png"))); // NOI18N
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 800, 520));
+
+        jLabel7.setText("jLabel7");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,6 +239,14 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_passwordKeyPressed
 
+    private void ckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckboxActionPerformed
+        if(ckbox.isSelected()){
+            password.setEchoChar((char)0);
+        }else{
+            password.setEchoChar('*');
+        }
+    }//GEN-LAST:event_ckboxActionPerformed
+
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
         if(evt.getKeyCode () == KeyEvent.VK_ENTER){
 
@@ -267,14 +277,6 @@ public class login extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_usernameKeyPressed
-
-    private void ckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckboxActionPerformed
-        if(ckbox.isSelected()){
-            password.setEchoChar((char)0);
-        }else{
-            password.setEchoChar('*');
-        }
-    }//GEN-LAST:event_ckboxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,6 +323,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JPasswordField password;
