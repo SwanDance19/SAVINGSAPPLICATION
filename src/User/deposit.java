@@ -27,22 +27,23 @@ public class deposit extends javax.swing.JFrame {
         initComponents();
     }
 
-private void displayData() {
-    try {
-        dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
-        if (rs.next()) {
-            double balance = rs.getDouble("balance");
-            String formattedBalance = String.format("%.2f", balance); 
-            bal.setText(formattedBalance);
-        } else {
-            System.out.println("No balance data found for the current user.");
+    private void displayData() {
+        try {
+            dbConnector dbc = new dbConnector();
+            ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
+            if (rs.next()) {
+                double balance = rs.getDouble("balance");
+                String formattedBalance = String.format("%.2f", balance);
+                bal.setText(formattedBalance);
+            } else {
+                System.out.println("No balance data found for the current user.");
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println("Error retrieving balance: " + ex.getMessage());
         }
-        rs.close(); 
-    } catch (SQLException ex) {
-        System.out.println("Error retrieving balance: " + ex.getMessage());
     }
-}
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -180,60 +181,60 @@ private void displayData() {
     private void depMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depMouseClicked
 
 // Retrieve the amount entered by the user
-String amountText = amount.getText();
+        String amountText = amount.getText();
 
 // Validate the amount
-if (amountText.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "Please enter the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
-    return;
-}
+        if (amountText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
 // Check if the amount is a valid number
-double depositAmount;
-try {
-    depositAmount = Double.parseDouble(amountText);
-} catch (NumberFormatException ex) {
-    JOptionPane.showMessageDialog(this, "Please enter a valid number for the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
-    return;
-}
+        double depositAmount;
+        try {
+            depositAmount = Double.parseDouble(amountText);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid number for the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
 // Perform the deposit operation
-performDeposit(depositAmount);
-int userId = Session.getInstance().getUid();
+        performDeposit(depositAmount);
+        int userId = Session.getInstance().getUid();
 
 // Insert the deposit amount into dep_tbl
-dbConnector dbc = new dbConnector();
-if (dbc.insertData("INSERT INTO dep_tbl(user_id, deposit) VALUES (" + userId + ", " + depositAmount + ")")) {
-    userDashboard ud = new userDashboard();
-    ud.setVisible(true);
-    this.dispose();
-} else {
-    JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
-}
+        dbConnector dbc = new dbConnector();
+        if (dbc.insertData("INSERT INTO dep_tbl(user_id, deposit) VALUES (" + userId + ", " + depositAmount + ")")) {
+            userDashboard ud = new userDashboard();
+            ud.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_depMouseClicked
 
     private void depositMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositMouseClicked
-             // Retrieve the amount entered by the user
-    String amountText = amount.getText();
-    
-    // Validate the amount
-    if (amountText.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please enter the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    // Check if the amount is a valid number
-    double depositAmount;
-    try {
-        depositAmount = Double.parseDouble(amountText);
-    } catch (NumberFormatException ex) {
-        JOptionPane.showMessageDialog(this, "Please enter a valid number for the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    // Perform the deposit operation
-    performDeposit(depositAmount);
+        // Retrieve the amount entered by the user
+        String amountText = amount.getText();
+
+        // Validate the amount
+        if (amountText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Check if the amount is a valid number
+        double depositAmount;
+        try {
+            depositAmount = Double.parseDouble(amountText);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid number for the deposit amount.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Perform the deposit operation
+        performDeposit(depositAmount);
     }//GEN-LAST:event_depositMouseClicked
 
     private void back1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back1MouseClicked
@@ -242,36 +243,36 @@ if (dbc.insertData("INSERT INTO dep_tbl(user_id, deposit) VALUES (" + userId + "
         this.dispose();
     }//GEN-LAST:event_back1MouseClicked
     private void performDeposit(double depositAmount) {
-    try {
-        // Get the current balance
-        dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
-        if (rs.next()) {
-            double currentBalance = rs.getDouble("balance");
-            
-            // Update the balance by adding the deposit amount
-            double newBalance = currentBalance + depositAmount;
-            
-            // Update the balance in the database
-            dbc.updateData("UPDATE tbl_user SET balance = " + newBalance + " WHERE user_id = " + Session.getInstance().getUid());
-            
-            // Display the updated balance on the UI
-            bal.setText(String.format("%.2f", newBalance));
-            
-            JOptionPane.showMessageDialog(this, "Deposit successful.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            // Get the current balance
+            dbConnector dbc = new dbConnector();
+            ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
+            if (rs.next()) {
+                double currentBalance = rs.getDouble("balance");
+
+                // Update the balance by adding the deposit amount
+                double newBalance = currentBalance + depositAmount;
+
+                // Update the balance in the database
+                dbc.updateData("UPDATE tbl_user SET balance = " + newBalance + " WHERE user_id = " + Session.getInstance().getUid());
+
+                // Display the updated balance on the UI
+                bal.setText(String.format("%.2f", newBalance));
+
+                JOptionPane.showMessageDialog(this, "Deposit successful.", "Success", JOptionPane.INFORMATION_MESSAGE);
                 userDashboard us = new userDashboard();
                 us.setVisible(true);
                 this.dispose();
-        } else {
-            System.out.println("No balance data found for the current user.");
+            } else {
+                System.out.println("No balance data found for the current user.");
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println("Error retrieving balance: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Error occurred while processing the deposit.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        rs.close();
-    } catch (SQLException ex) {
-        System.out.println("Error retrieving balance: " + ex.getMessage());
-        JOptionPane.showMessageDialog(this, "Error occurred while processing the deposit.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
-       
+
     /**
      * @param args the command line arguments
      */

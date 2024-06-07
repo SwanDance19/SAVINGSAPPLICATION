@@ -1,4 +1,3 @@
-
 package User;
 
 import config.Session;
@@ -9,36 +8,33 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
-
 public class userDashboard extends javax.swing.JFrame {
-
 
     public userDashboard() {
         initComponents();
-       
+
     }
-    
-    Color navcolor = new Color(255,153,0);
-    Color hovercolor = new Color(255,204,153);
-    Color navcolor1 = new Color(153,102,0);
-    
-private void displayData() {
-    try {
-        dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
-        if (rs.next()) {
-            double balance = rs.getDouble("balance");
-            String formattedBalance = String.format("%.2f", balance); 
-            bal.setText(formattedBalance);
-        } else {
-            System.out.println("No balance data found for the current user.");
+
+    Color navcolor = new Color(255, 153, 0);
+    Color hovercolor = new Color(255, 204, 153);
+    Color navcolor1 = new Color(153, 102, 0);
+
+    private void displayData() {
+        try {
+            dbConnector dbc = new dbConnector();
+            ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
+            if (rs.next()) {
+                double balance = rs.getDouble("balance");
+                String formattedBalance = String.format("%.2f", balance);
+                bal.setText(formattedBalance);
+            } else {
+                System.out.println("No balance data found for the current user.");
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println("Error retrieving balance: " + ex.getMessage());
         }
-        rs.close(); 
-    } catch (SQLException ex) {
-        System.out.println("Error retrieving balance: " + ex.getMessage());
     }
-}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -480,35 +476,35 @@ private void displayData() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-            Session session = Session.getInstance();
-            
-            account_fname.setText(""+session.getFname());
-            account_lname.setText(""+session.getLname());
-            displayData();
+        Session session = Session.getInstance();
+
+        account_fname.setText("" + session.getFname());
+        account_lname.setText("" + session.getLname());
+        displayData();
     }//GEN-LAST:event_formWindowActivated
 
     private void transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseClicked
         transaction trans = new transaction();
         trans.setVisible(true);
-        this.dispose();
+        this.dispose(); 
     }//GEN-LAST:event_transMouseClicked
 
     private void withMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_withMouseClicked
-       withdraw wit = new withdraw();
-       wit.setVisible(true);
-       this.dispose();
+        withdraw wit = new withdraw();
+        wit.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_withMouseClicked
 
     private void depoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depoMouseClicked
-      deposit dep = new deposit();
-      dep.setVisible(true);
-      this.dispose();
+        deposit dep = new deposit();
+        dep.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_depoMouseClicked
 
     private void accMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseClicked
-      accountDetails ad = new accountDetails();
-      ad.setVisible(true);
-      this.dispose();
+        accountDetails ad = new accountDetails();
+        ad.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_accMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
@@ -517,65 +513,64 @@ private void displayData() {
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-            deposit dep = new deposit();
-      dep.setVisible(true);
-      this.dispose();
+        deposit dep = new deposit();
+        dep.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-            withdraw wit = new withdraw();
-       wit.setVisible(true);
-       this.dispose();
+        withdraw wit = new withdraw();
+        wit.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-      transaction trans = new transaction();
+        transaction trans = new transaction();
         trans.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-            accountDetails ad = new accountDetails();
-      ad.setVisible(true);
-      this.dispose();
+        accountDetails ad = new accountDetails();
+        ad.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         JFrame frame = new JFrame("Logout");
-        if(JOptionPane.showConfirmDialog(frame,"Confirm if you want to Logout", "Logout",
-            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
-    {
-        System.exit(0);
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to Logout", "Logout",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
         }
 
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void ckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckboxActionPerformed
-double originalBalance = 0; 
+        double originalBalance = 0;
 
-try {
-    dbConnector dbc = new dbConnector();
-    ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
-    if (rs.next()) {
-        originalBalance = rs.getDouble("balance"); 
-        if (ckbox.isSelected()) {
-            int asterisksCount = String.valueOf(originalBalance).length();
-            StringBuilder asterisks = new StringBuilder();
-            for (int i = -1; i < asterisksCount; i++) {
-                asterisks.append('*');
+        try {
+            dbConnector dbc = new dbConnector();
+            ResultSet rs = dbc.getData("SELECT balance FROM tbl_user WHERE user_id = " + Session.getInstance().getUid());
+            if (rs.next()) {
+                originalBalance = rs.getDouble("balance");
+                if (ckbox.isSelected()) {
+                    int asterisksCount = String.valueOf(originalBalance).length();
+                    StringBuilder asterisks = new StringBuilder();
+                    for (int i = -1; i < asterisksCount; i++) {
+                        asterisks.append('*');
+                    }
+                    bal.setText(asterisks.toString());
+                } else {
+                    bal.setText(String.format("%.2f", originalBalance)); // Corrected line to format the original balance
+                }
+            } else {
+                System.out.println("No balance data found for the current user.");
             }
-            bal.setText(asterisks.toString());
-        } else {
-            bal.setText(String.format("%.2f", originalBalance)); // Corrected line to format the original balance
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println("Error retrieving balance: " + ex.getMessage());
         }
-    } else {
-        System.out.println("No balance data found for the current user.");
-    }
-    rs.close(); 
-} catch (SQLException ex) {
-    System.out.println("Error retrieving balance: " + ex.getMessage());
-}
-    
+
     }//GEN-LAST:event_ckboxActionPerformed
 
     private void balActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balActionPerformed
@@ -591,7 +586,7 @@ try {
     }//GEN-LAST:event_depPanelMouseEntered
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        depPanel.setBackground(hovercolor);        
+        depPanel.setBackground(hovercolor);
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void depPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depPanelMouseExited
@@ -599,7 +594,7 @@ try {
     }//GEN-LAST:event_depPanelMouseExited
 
     private void depoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depoMouseExited
-       depPanel.setBackground(navcolor);
+        depPanel.setBackground(navcolor);
     }//GEN-LAST:event_depoMouseExited
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
@@ -607,7 +602,7 @@ try {
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void widPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_widPanelMouseEntered
-       widPanel.setBackground(hovercolor);  
+        widPanel.setBackground(hovercolor);
     }//GEN-LAST:event_widPanelMouseEntered
 
     private void withMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_withMouseEntered
@@ -615,7 +610,7 @@ try {
     }//GEN-LAST:event_withMouseEntered
 
     private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
-      widPanel.setBackground(hovercolor);
+        widPanel.setBackground(hovercolor);
     }//GEN-LAST:event_jLabel8MouseEntered
 
     private void widPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_widPanelMouseExited
@@ -631,19 +626,19 @@ try {
     }//GEN-LAST:event_jLabel8MouseExited
 
     private void tranPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tranPanelMouseEntered
-       tranPanel.setBackground(hovercolor);
+        tranPanel.setBackground(hovercolor);
     }//GEN-LAST:event_tranPanelMouseEntered
 
     private void transMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseEntered
-    tranPanel.setBackground(hovercolor);
+        tranPanel.setBackground(hovercolor);
     }//GEN-LAST:event_transMouseEntered
 
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
-    tranPanel.setBackground(hovercolor);
+        tranPanel.setBackground(hovercolor);
     }//GEN-LAST:event_jLabel7MouseEntered
 
     private void tranPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tranPanelMouseExited
-      tranPanel.setBackground(navcolor);
+        tranPanel.setBackground(navcolor);
     }//GEN-LAST:event_tranPanelMouseExited
 
     private void transMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseExited
@@ -651,57 +646,57 @@ try {
     }//GEN-LAST:event_transMouseExited
 
     private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
-           tranPanel.setBackground(navcolor);
+        tranPanel.setBackground(navcolor);
     }//GEN-LAST:event_jLabel7MouseExited
 
     private void maPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maPanelMouseExited
-         maPanel.setBackground(navcolor);
+        maPanel.setBackground(navcolor);
     }//GEN-LAST:event_maPanelMouseExited
 
     private void accMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseExited
-                 maPanel.setBackground(navcolor);
+        maPanel.setBackground(navcolor);
 
     }//GEN-LAST:event_accMouseExited
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-              maPanel.setBackground(navcolor);
+        maPanel.setBackground(navcolor);
 
     }//GEN-LAST:event_jLabel3MouseExited
 
     private void maPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maPanelMouseEntered
-       maPanel.setBackground(hovercolor);
+        maPanel.setBackground(hovercolor);
     }//GEN-LAST:event_maPanelMouseEntered
 
     private void accMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseEntered
-       maPanel.setBackground(hovercolor);
+        maPanel.setBackground(hovercolor);
     }//GEN-LAST:event_accMouseEntered
 
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-             maPanel.setBackground(hovercolor);
+        maPanel.setBackground(hovercolor);
     }//GEN-LAST:event_jLabel3MouseEntered
 
     private void depPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depPanelMouseClicked
-           deposit dep = new deposit();
-      dep.setVisible(true);
-      this.dispose();
+        deposit dep = new deposit();
+        dep.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_depPanelMouseClicked
 
     private void widPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_widPanelMouseClicked
-          withdraw wit = new withdraw();
-       wit.setVisible(true);
-       this.dispose();
+        withdraw wit = new withdraw();
+        wit.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_widPanelMouseClicked
 
     private void tranPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tranPanelMouseClicked
-         transaction trans = new transaction();
+        transaction trans = new transaction();
         trans.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tranPanelMouseClicked
 
     private void maPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maPanelMouseClicked
-       accountDetails ad = new accountDetails();
-      ad.setVisible(true);
-      this.dispose();
+        accountDetails ad = new accountDetails();
+        ad.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_maPanelMouseClicked
 
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
@@ -709,12 +704,12 @@ try {
     }//GEN-LAST:event_jLabel1MouseEntered
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-              jPanel3.setBackground(navcolor1);
+        jPanel3.setBackground(navcolor1);
 
     }//GEN-LAST:event_jLabel1MouseExited
 
     private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
-         jPanel3.setBackground(hovercolor);
+        jPanel3.setBackground(hovercolor);
     }//GEN-LAST:event_jPanel3MouseEntered
 
     private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
@@ -723,18 +718,17 @@ try {
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         JFrame frame = new JFrame("Logout");
-        if(JOptionPane.showConfirmDialog(frame,"Confirm if you want to Logout", "Logout",
-            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
-    {
-        System.exit(0);
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to Logout", "Logout",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
         }
 
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void acc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseClicked
-              accountDetails ad = new accountDetails();
-      ad.setVisible(true);
-      this.dispose();
+        accountDetails ad = new accountDetails();
+        ad.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_acc1MouseClicked
 
     private void acc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseEntered
@@ -742,18 +736,15 @@ try {
     }//GEN-LAST:event_acc1MouseEntered
 
     private void acc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseExited
-          maPanel.setBackground(navcolor);
+        maPanel.setBackground(navcolor);
     }//GEN-LAST:event_acc1MouseExited
-
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        
-        
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 

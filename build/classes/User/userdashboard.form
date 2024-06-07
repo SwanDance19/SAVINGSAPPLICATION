@@ -306,9 +306,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\USER\OneDrive\Pictures\eye.png"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ckboxActionPerformed"/>
@@ -336,9 +333,6 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
-              <BindingProperties>
-                <BindingProperty name="enabled" source="bal" sourcePath="disabled" target="bal" targetPath="enabled" updateStrategy="0" immediately="false"/>
-              </BindingProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="balActionPerformed"/>
               </Events>

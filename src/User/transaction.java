@@ -1,4 +1,3 @@
-
 package User;
 
 import config.Session;
@@ -14,37 +13,38 @@ public class transaction extends javax.swing.JFrame {
         initComponents();
         displayData();
     }
-    Color navcolor = new Color(255,153,0);
-    Color hovercolor = new Color(255,204,153);
+    Color navcolor = new Color(255, 153, 0);
+    Color hovercolor = new Color(255, 204, 153);
 
+    public void displayData() {
+        try {
+            // Connect to the database
+            dbConnector dbc = new dbConnector();
 
-public void displayData() {
-    try {
-        // Connect to the database
-        dbConnector dbc = new dbConnector();
-        
-        // Retrieve transactions for the current user from the database
-        ResultSet rs = dbc.getData("SELECT trans_tbl.user_id, trans_tbl.deposit_id, trans_tbl.withdraw_id, "
-                + "dep_tbl.deposit, with_tbl.withdraw, tbl_user.balance "
-                + "FROM trans_tbl "
-                + "LEFT JOIN dep_tbl ON trans_tbl.deposit_id = dep_tbl.id "
-                + "LEFT JOIN with_tbl ON trans_tbl.withdraw_id = with_tbl.id "
-                + "LEFT JOIN tbl_user ON trans_tbl.user_id = tbl_user.user_id "
-                + "WHERE trans_tbl.user_id = " + Session.getInstance().getUid());
-                transTable.setModel(DbUtils.resultSetToTableModel(rs));
-        
-        // Close the result set
-        rs.close();
-    } catch (SQLException ex) {
-        // Handle any SQL errors
-        System.out.println("Errors: " + ex.getMessage());
+            // Retrieve transactions for the current user from the database
+            ResultSet rs = dbc.getData("SELECT "
+                    + "t.trans_id AS `Transaction #`, "
+                    + "u.user_fname AS `Account name`, "
+                    + "u.user_fname AS `Account name`, "
+                    + "d.deposit AS `Deposit`, "
+                    + "w.withdraw AS `Withdraw`, "
+                    + "t.date AS `Date` "
+                    + "FROM trans_tbl t "
+                    + "JOIN tbl_user u ON u.user_id = t.users_id "
+                    + "JOIN tbl_deposit d ON d.d_id = t.dep_id "
+                    + "JOIN tbl_withdraw w ON w.w_id = t.with_id "
+                    + "WHERE t.users_id = " + Session.getInstance().getUid());
+
+            transTable.setModel(DbUtils.resultSetToTableModel(rs));
+
+            // Close the result set
+            rs.close();
+        } catch (SQLException ex) {
+            // Handle any SQL errors
+            System.out.println("Errors: " + ex.getMessage());
+        }
     }
-}
 
-
-
-
-      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -207,11 +207,11 @@ public void displayData() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-      // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
-    
+
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-       userDashboard ud = new userDashboard();
+        userDashboard ud = new userDashboard();
         ud.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backMouseClicked
@@ -286,6 +286,5 @@ public void displayData() {
     private javax.swing.JPanel printPanel;
     private javax.swing.JTable transTable;
     // End of variables declaration//GEN-END:variables
-
 
 }

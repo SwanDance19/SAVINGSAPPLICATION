@@ -1,4 +1,3 @@
-
 package loginForm;
 
 import Admin.adminDashboard;
@@ -19,43 +18,43 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
     }
-    
-     static String status;
-     
-     static String type;
-     
+
+    static String status;
+
+    static String type;
+
     public static boolean login(String username, String password) {
         dbConnector connector = new dbConnector();
-        try{
+        try {
             String query = "SELECT * FROM tbl_user WHERE user_name = '" + username + "'";
             ResultSet resultSet = connector.getData(query);
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 String hashedPass = resultSet.getString("user_pass");
                 String rehashedPass = passwordHasher.hashPassword(password);
-              
-                if(hashedPass.equals(rehashedPass)){  
-                  type = resultSet.getString("account_type");
-                  status = resultSet.getString("account_status");
-                  Session session = Session.getInstance();
-                  session.setUid(resultSet.getInt("user_id"));    
-                  session.setFname(resultSet.getString("user_fname"));
-                  session.setLname(resultSet.getString("user_lname"));
-                  session.setEmail(resultSet.getString("user_email"));
-                  session.setType(resultSet.getString("account_type"));
-                  session.setStatus(resultSet.getString("account_status"));
-            return true;
-              }else{
-                  return false;
-              }    
-              
-            }else{
-                 return false;
-             }
-        }catch (SQLException | NoSuchAlgorithmException ex) {
+
+                if (hashedPass.equals(rehashedPass)) {
+                    type = resultSet.getString("account_type");
+                    status = resultSet.getString("account_status");
+                    Session session = Session.getInstance();
+                    session.setUid(resultSet.getInt("user_id"));
+                    session.setFname(resultSet.getString("user_fname"));
+                    session.setLname(resultSet.getString("user_lname"));
+                    session.setEmail(resultSet.getString("user_email"));
+                    session.setType(resultSet.getString("account_type"));
+                    session.setStatus(resultSet.getString("account_status"));
+                    return true;
+                } else {
+                    return false;
+                }
+
+            } else {
+                return false;
+            }
+        } catch (SQLException | NoSuchAlgorithmException ex) {
             return false;
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,6 +121,11 @@ public class login extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -144,7 +148,6 @@ public class login extends javax.swing.JFrame {
         ckbox.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         ckbox.setText(" ");
         ckbox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        ckbox.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\OneDrive\\Pictures\\eye.png")); // NOI18N
         ckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ckboxActionPerformed(evt);
@@ -183,100 +186,104 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        signup su = new signup();
-        su.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
 
-        if(login(username.getText(),password.getText())){
+        if (login(username.getText(), password.getText())) {
 
-            if(!status.equals("Active")){
-                JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
-            }else{
-                if(type.equals("Admin")){
+            if (!status.equals("Active")) {
+                JOptionPane.showMessageDialog(null, "Inactive Account, Contact the Admin!", "Message", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (type.equals("Admin")) {
                     adminDashboard ads = new adminDashboard();
                     ads.setVisible(true);
                     this.dispose();
-                }else if(type.equals("User")){
+                } else if (type.equals("User")) {
                     userDashboard udb = new userDashboard();
                     udb.setVisible(true);
                     this.dispose();
-                }else{
-                    JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No account type found, Contact the Admin!", "Message", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }else{
-            JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid Account, Please Try Again!!", "Message", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_loginActionPerformed
 
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
-        if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            if(login(username.getText(),password.getText())){
+            if (login(username.getText(), password.getText())) {
 
-                if(!status.equals("Active")){
-                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
-                }else{
-                    if(type.equals("Admin")){
+                if (!status.equals("Active")) {
+                    JOptionPane.showMessageDialog(null, "Inactive Account, Contact the Admin!", "Message", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    if (type.equals("Admin")) {
                         adminDashboard ads = new adminDashboard();
                         ads.setVisible(true);
                         this.dispose();
-                    }else if(type.equals("User")){
+                    } else if (type.equals("User")) {
                         userDashboard udb = new userDashboard();
                         udb.setVisible(true);
                         this.dispose();
-                    }else{
-                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No account type found, Contact the Admin!", "Message", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-            }else{
-                JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid Account, Please Try Again!!", "Message", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_passwordKeyPressed
 
     private void ckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckboxActionPerformed
-        if(ckbox.isSelected()){
-            password.setEchoChar((char)0);
-        }else{
+        if (ckbox.isSelected()) {
+            password.setEchoChar((char) 0);
+        } else {
             password.setEchoChar('*');
         }
     }//GEN-LAST:event_ckboxActionPerformed
 
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
-        if(evt.getKeyCode () == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            if(login(username.getText(),password.getText())){
+            if (login(username.getText(), password.getText())) {
 
-                if(!status.equals("Active")){
-                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
-                }else{
-                    if(type.equals("Admin")){
+                if (!status.equals("Active")) {
+                    JOptionPane.showMessageDialog(null, "Inactive Account, Contact the Admin!");
+                } else {
+                    if (type.equals("Admin")) {
                         adminDashboard ads = new adminDashboard();
                         ads.setVisible(true);
                         this.dispose();
-                    }else if(type.equals("User")){
+                    } else if (type.equals("User")) {
                         userDashboard udb = new userDashboard();
                         udb.setVisible(true);
                         this.dispose();
-                    }else{
-                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No account type found, Contact the Admin!");
                     }
                 }
             }
 
-            if(username.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Please fill out username!!", "Message",JOptionPane.ERROR_MESSAGE);
-            }else if(password.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Please fill out password!!", "Message",JOptionPane.ERROR_MESSAGE);
+            if (username.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please fill out username!!", "Message", JOptionPane.ERROR_MESSAGE);
+            } else if (password.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please fill out password!!", "Message", JOptionPane.ERROR_MESSAGE);
             }
 
         }
     }//GEN-LAST:event_usernameKeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        signup su = new signup();
+        su.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
  * @author vin
  */
 public class Session {
+
     private double balance;
     private static Session instance;
     private int uid;
@@ -24,24 +25,21 @@ public class Session {
     private String username;
     private String type;
     private String status;
-    
-    
-    
-    private Session(){
+
+    private Session() {
     }
 
-
     public static synchronized Session getInstance() {
-        if(instance == null){
+        if (instance == null) {
             instance = new Session();
         }
         return instance;
     }
 
-    public static boolean isInstanceEmpty(){
+    public static boolean isInstanceEmpty() {
         return instance == null;
     }
-    
+
     public int getUid() {
         return uid;
     }
@@ -73,21 +71,23 @@ public class Session {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
-    this.username = username;
+        this.username = username;
     }
-    
+
     public double getBalance() {
         return balance;
     }
+
     public void setBalance(int balance) {
         this.balance = balance;
     }
-    
+
     public String getType() {
         return type;
     }
@@ -104,16 +104,12 @@ public class Session {
         this.status = status;
     }
 
-    public double getAmount(double amount){
+    public double getAmount(double amount) {
         return amount;
     }
-    
-    public void setAmount(double amount){
+
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
-
-
-
-    
 }
