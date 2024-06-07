@@ -25,7 +25,6 @@ public class transaction extends javax.swing.JFrame {
             ResultSet rs = dbc.getData("SELECT "
                     + "t.trans_id AS `Transaction #`, "
                     + "u.user_fname AS `Account name`, "
-                    + "u.user_fname AS `Account name`, "
                     + "d.deposit AS `Deposit`, "
                     + "w.withdraw AS `Withdraw`, "
                     + "t.date AS `Date` "
