@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package User;
+package DepositPackage;
 
+import User.userDashboard;
 import config.Session;
 import config.dbConnector;
 import config.passwordHasher;
+import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +28,8 @@ public class deposit extends javax.swing.JFrame {
     public deposit() {
         initComponents();
     }
+    Color hovercolor = new Color(255, 204, 153);
+    Color navcolor1 = new Color(153, 102, 0);
 
     private void displayData() {
         try {
@@ -65,6 +69,7 @@ public class deposit extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -72,22 +77,37 @@ public class deposit extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 220, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 220, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Available Balance:  ₱");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 166, 201, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 201, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Amount:                   ₱");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 221, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         bal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(bal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, 40));
-        jPanel1.add(amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 214, 220, 40));
+
+        amount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 220, 40));
 
         jPanel4.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel4MouseExited(evt);
+            }
+        });
         jPanel4.setLayout(null);
 
         back.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -96,16 +116,29 @@ public class deposit extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backMouseExited(evt);
+            }
         });
         jPanel4.add(back);
         back.setBounds(30, 10, 50, 20);
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 272, 100, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 100, 40));
 
         deposit.setBackground(new java.awt.Color(153, 102, 0));
+        deposit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         deposit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 depositMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                depositMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                depositMouseExited(evt);
             }
         });
         deposit.setLayout(null);
@@ -116,13 +149,20 @@ public class deposit extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 depMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                depMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                depMouseExited(evt);
+            }
         });
         deposit.add(dep);
         dep.setBounds(20, 10, 68, 20);
 
-        jPanel1.add(deposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 272, 108, 40));
+        jPanel1.add(deposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 108, 40));
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel3.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -149,7 +189,8 @@ public class deposit extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/How-to-Deposit-Cash-at-an-Online-Only-Bank-Story.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 370, 270));
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 360, 240));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,7 +245,7 @@ public class deposit extends javax.swing.JFrame {
 
 // Insert the deposit amount into dep_tbl
         dbConnector dbc = new dbConnector();
-        if (dbc.insertData("INSERT INTO dep_tbl(user_id, deposit) VALUES (" + userId + ", " + depositAmount + ")")) {
+        if (dbc.insertData("INSERT INTO tbl_deposit(d_id, deposit) VALUES (" + userId + ", " + depositAmount + ")")) {
             userDashboard ud = new userDashboard();
             ud.setVisible(true);
             this.dispose();
@@ -242,6 +283,44 @@ public class deposit extends javax.swing.JFrame {
         ud.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_back1MouseClicked
+
+    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
+ jPanel4.setBackground(hovercolor);
+    }//GEN-LAST:event_jPanel4MouseEntered
+
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+        jPanel4.setBackground(navcolor1);
+    }//GEN-LAST:event_jPanel4MouseExited
+
+    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
+    jPanel4.setBackground(hovercolor);
+    }//GEN-LAST:event_backMouseEntered
+
+    private void backMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseExited
+ jPanel4.setBackground(navcolor1);
+    }//GEN-LAST:event_backMouseExited
+
+    private void depositMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositMouseEntered
+   deposit.setBackground(hovercolor);
+    }//GEN-LAST:event_depositMouseEntered
+
+    private void depositMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositMouseExited
+ deposit.setBackground(navcolor1);
+    }//GEN-LAST:event_depositMouseExited
+
+    private void depMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depMouseEntered
+ deposit.setBackground(hovercolor);
+    }//GEN-LAST:event_depMouseEntered
+
+    private void depMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depMouseExited
+ deposit.setBackground(hovercolor);
+    }//GEN-LAST:event_depMouseExited
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        userDashboard us = new userDashboard();
+        us.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel4MouseClicked
     private void performDeposit(double depositAmount) {
         try {
             // Get the current balance

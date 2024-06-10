@@ -1,5 +1,8 @@
 package User;
 
+import DepositPackage.deposit;
+import TransactionPackage.transaction;
+import WithdrawPackage.withdraw;
 import config.Session;
 import config.dbConnector;
 import java.awt.Color;
@@ -39,15 +42,14 @@ public class userDashboard extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         account_fname = new javax.swing.JLabel();
         account_lname = new javax.swing.JLabel();
@@ -86,7 +88,28 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 50, -1));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel2.setText("Hello !!");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, 30));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save2.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
+
         jPanel3.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel3MouseClicked(evt);
@@ -118,38 +141,19 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 90, 50));
-
-        jPanel2.setBackground(new java.awt.Color(153, 102, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 50, -1));
-
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        jLabel2.setText("Hello !!");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, 30));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save2.png"))); // NOI18N
-        jLabel10.setText("jLabel10");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 10, 110, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 70));
 
@@ -199,7 +203,6 @@ public class userDashboard extends javax.swing.JFrame {
 
         ckbox.setBackground(new java.awt.Color(255, 255, 255));
         ckbox.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        ckbox.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\OneDrive\\Pictures\\eye.png")); // NOI18N
         ckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ckboxActionPerformed(evt);
@@ -213,10 +216,6 @@ public class userDashboard extends javax.swing.JFrame {
         bal.setBorder(null);
         bal.setName(""); // NOI18N
         bal.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, bal, org.jdesktop.beansbinding.ELProperty.create("disabled"), bal, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
-
         bal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 balActionPerformed(evt);
@@ -469,8 +468,6 @@ public class userDashboard extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bindingGroup.bind();
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -484,8 +481,8 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transMouseClicked
-        transaction trans = new transaction();
-        trans.setVisible(true);
+        or o = new or();
+        o.setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_transMouseClicked
 
@@ -502,9 +499,7 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_depoMouseClicked
 
     private void accMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseClicked
-        accountDetails ad = new accountDetails();
-        ad.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_accMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
@@ -525,9 +520,9 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        transaction trans = new transaction();
-        trans.setVisible(true);
-        this.dispose();
+        or o = new or();
+        o.setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -654,8 +649,8 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_maPanelMouseExited
 
     private void accMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseExited
-        maPanel.setBackground(navcolor);
 
+      
     }//GEN-LAST:event_accMouseExited
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
@@ -668,7 +663,7 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_maPanelMouseEntered
 
     private void accMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseEntered
-        maPanel.setBackground(hovercolor);
+
     }//GEN-LAST:event_accMouseEntered
 
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
@@ -688,9 +683,9 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_widPanelMouseClicked
 
     private void tranPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tranPanelMouseClicked
-        transaction trans = new transaction();
-        trans.setVisible(true);
-        this.dispose();
+        or o = new or();
+        o.setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_tranPanelMouseClicked
 
     private void maPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maPanelMouseClicked
@@ -808,6 +803,5 @@ public class userDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel user;
     private javax.swing.JPanel widPanel;
     private javax.swing.JLabel with;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

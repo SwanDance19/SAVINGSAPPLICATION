@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package User;
+package WithdrawPackage;
 
+import User.userDashboard;
 import config.Session;
 import config.dbConnector;
 import java.sql.ResultSet;
@@ -60,6 +61,7 @@ private void displayData() {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -67,9 +69,11 @@ private void displayData() {
         });
 
         jPanel48.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel48.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel46.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel46.setLayout(null);
 
         uid.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -90,9 +94,9 @@ private void displayData() {
             }
         });
         jPanel46.add(back1);
-        back1.setBounds(820, 20, 40, 30);
+        back1.setBounds(730, 20, 40, 30);
 
-        jPanel48.add(jPanel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 893, 67));
+        jPanel48.add(jPanel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 67));
 
         jLabel61.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel61.setText("Available Balance:  ₱");
@@ -103,10 +107,13 @@ private void displayData() {
         jPanel48.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 217, -1, -1));
 
         bal15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPanel48.add(bal15, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 125, 312, 45));
-        jPanel48.add(amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 207, 312, 46));
+        jPanel48.add(bal15, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 130, 240, 40));
+
+        amount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel48.add(amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 207, 240, 40));
 
         jPanel47.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel47.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel47.setLayout(null);
 
         back15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -117,11 +124,12 @@ private void displayData() {
             }
         });
         jPanel47.add(back15);
-        back15.setBounds(30, 10, 50, 20);
+        back15.setBounds(20, 10, 50, 20);
 
-        jPanel48.add(jPanel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 271, 100, 40));
+        jPanel48.add(jPanel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 80, 40));
 
         jPanel49.setBackground(new java.awt.Color(153, 102, 0));
+        jPanel49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel49.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel49MouseClicked(evt);
@@ -137,19 +145,22 @@ private void displayData() {
             }
         });
         jPanel49.add(withdraw);
-        withdraw.setBounds(20, 10, 100, 20);
+        withdraw.setBounds(10, 10, 90, 20);
 
-        jPanel48.add(jPanel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 271, 129, 40));
+        jPanel48.add(jPanel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 110, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dawatmoney.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel48.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 370, 280));
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel48.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 370, 250));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,12 +170,6 @@ private void displayData() {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void back15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back15MouseClicked
-        userDashboard us = new userDashboard();
-        us.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_back15MouseClicked
 
     private void withdrawMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_withdrawMouseClicked
 
@@ -192,7 +197,7 @@ performWithdraw(withdrawAmount);
 int userId = Session.getInstance().getUid();
  // Insert the deposit amount into dep_tbl
 dbConnector dbc = new dbConnector();
-if (dbc.insertData("INSERT INTO with_tbl(user_id, withdraw) VALUES (" + userId + ", " + withdrawAmount + ")")) {
+if (dbc.insertData("INSERT INTO tbl_withdraw(w_id, withdraw) VALUES (" + userId + ", " + withdrawAmount + ")")) {
     userDashboard ud = new userDashboard();
     ud.setVisible(true);
     this.dispose();
@@ -236,6 +241,12 @@ if (dbc.insertData("INSERT INTO with_tbl(user_id, withdraw) VALUES (" + userId +
         ud.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_back1MouseClicked
+
+    private void back15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back15MouseClicked
+        userDashboard us = new userDashboard();
+        us.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_back15MouseClicked
 private void performWithdraw(double withdrawAmount) {
  try {
         // Get the current balance

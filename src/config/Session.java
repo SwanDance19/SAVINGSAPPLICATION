@@ -25,6 +25,7 @@ public class Session {
     private String username;
     private String type;
     private String status;
+    private int transID;
 
     private Session() {
     }
@@ -46,6 +47,13 @@ public class Session {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+        public int gettransID() {
+        return transID;
+    }
+
+    public void settransID(int transID) {
+        this.transID = transID;
     }
 
     public String getFname() {

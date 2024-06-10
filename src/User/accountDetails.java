@@ -67,6 +67,7 @@ public class accountDetails extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -126,6 +127,7 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel5.add(account_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 231, -1, -1));
 
         cpPanel.setBackground(new java.awt.Color(204, 102, 0));
+        cpPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cpPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cpPanelMouseClicked(evt);
@@ -157,19 +159,18 @@ public class accountDetails extends javax.swing.JFrame {
         cpPanel.setLayout(cpPanelLayout);
         cpPanelLayout.setHorizontalGroup(
             cpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cpPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cp, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(cpPanelLayout.createSequentialGroup()
+                .addComponent(cp, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         cpPanelLayout.setVerticalGroup(
             cpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cpPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cp)
-                .addGap(19, 19, 19))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(cp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel5.add(cpPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 314, -1, 43));
+        jPanel5.add(cpPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 314, 170, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/my-account-5.png"))); // NOI18N
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 100, 110));
