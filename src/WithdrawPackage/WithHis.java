@@ -39,12 +39,12 @@ public class WithHis extends javax.swing.JFrame {
 ResultSet rs = dbc.getData("SELECT "
     + "t.trans_id AS `Transaction #`, "
     + "t.with_id AS `Withdrawal ID`, "
-    + "u.user_fname AS `Account name`, "
-    + "w.withdraw AS `Withdrawn`, " 
-    + "w.date AS `Date` " 
+    + "u.user_lname AS `Account name`, "
+    + "w.withdraw AS `Withdrawn`, "     
+    + "t.date AS `Date` " 
     + "FROM trans_tbl t "
     + "JOIN tbl_user u ON u.user_id = t.users_id "
-    + "JOIN tbl_withdraw w ON w.w_id = t.with_id AND w.date " 
+    + "JOIN tbl_withdraw w ON w.w_id = t.with_id " 
     + "WHERE t.trans_id = '" + Session.getInstance().gettransID() + "' OR t.users_id = '" + Session.getInstance().getUid() + "'");
 
            

@@ -40,12 +40,12 @@ public class depHis extends javax.swing.JFrame {
 ResultSet rs = dbc.getData("SELECT "
     + "t.trans_id AS `Transaction #`, "
     + "t.dep_id AS `Deposit ID`, "
-    + "u.user_fname AS `Account name`, "
+    + "u.user_lname AS `Account name`, "
     + "d.deposit AS `Deposited`, "
-    + "d.date AS `Date` "
+    + "t.date AS `Date` "
     + "FROM trans_tbl t "
     + "JOIN tbl_user u ON u.user_id = t.users_id "
-    + "JOIN tbl_deposit d ON d.d_id = t.dep_id AND d.date "  
+    + "JOIN tbl_deposit d ON d.d_id = t.dep_id  "  
     + "WHERE t.trans_id = '" + Session.getInstance().gettransID() + "' OR t.users_id = '" + Session.getInstance().getUid() + "'");
 
 
